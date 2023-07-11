@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandCommon.csproj",
-      "projectName": "WastelandCommon",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandCommon.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj",
+      "projectName": "WastelandRilfeworks.Common",
+      "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\obj\\",
       "projectStyle": "PackageReference",

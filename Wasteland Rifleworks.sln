@@ -5,7 +5,17 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wasteland Rifleworks", "Wasteland Rifleworks\Wasteland Rifleworks.csproj", "{A15ADCAA-CFED-401A-BC84-B64ECF7A9104}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WastelandCommon", "WastelandGeneralConstants\WastelandCommon.csproj", "{ACC17BCE-572D-47E5-AAE8-AAEFC827ECEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WastelandRilfeworks.Common", "WastelandGeneralConstants\WastelandRilfeworks.Common.csproj", "{ACC17BCE-572D-47E5-AAE8-AAEFC827ECEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{A41B9EFB-63D7-49B1-9808-F8AFFDB89C3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{99611297-A4B8-46C2-9DB0-D36071287F34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WastelandRilfeworks.Data", "WastelandRilfeworks.Data\WastelandRilfeworks.Data.csproj", "{505E8C95-7CE5-442D-9E99-D5E0AE00507C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WastelandRilfeworks.Data.Models", "WastelandRilfeworks.Data.Models\WastelandRilfeworks.Data.Models.csproj", "{A755FDDF-AD77-4BFF-8793-79733FE6371E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WastelandRifleworks.Web.ViewModels", "WastelandRifleworks.Web.ViewModels\WastelandRifleworks.Web.ViewModels.csproj", "{198B228D-5ECC-4737-A8E5-10EAEDEC1C37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +31,27 @@ Global
 		{ACC17BCE-572D-47E5-AAE8-AAEFC827ECEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACC17BCE-572D-47E5-AAE8-AAEFC827ECEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACC17BCE-572D-47E5-AAE8-AAEFC827ECEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{505E8C95-7CE5-442D-9E99-D5E0AE00507C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{505E8C95-7CE5-442D-9E99-D5E0AE00507C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{505E8C95-7CE5-442D-9E99-D5E0AE00507C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{505E8C95-7CE5-442D-9E99-D5E0AE00507C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A755FDDF-AD77-4BFF-8793-79733FE6371E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A755FDDF-AD77-4BFF-8793-79733FE6371E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A755FDDF-AD77-4BFF-8793-79733FE6371E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A755FDDF-AD77-4BFF-8793-79733FE6371E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{198B228D-5ECC-4737-A8E5-10EAEDEC1C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{198B228D-5ECC-4737-A8E5-10EAEDEC1C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{198B228D-5ECC-4737-A8E5-10EAEDEC1C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{198B228D-5ECC-4737-A8E5-10EAEDEC1C37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A15ADCAA-CFED-401A-BC84-B64ECF7A9104} = {99611297-A4B8-46C2-9DB0-D36071287F34}
+		{505E8C95-7CE5-442D-9E99-D5E0AE00507C} = {A41B9EFB-63D7-49B1-9808-F8AFFDB89C3F}
+		{A755FDDF-AD77-4BFF-8793-79733FE6371E} = {A41B9EFB-63D7-49B1-9808-F8AFFDB89C3F}
+		{198B228D-5ECC-4737-A8E5-10EAEDEC1C37} = {99611297-A4B8-46C2-9DB0-D36071287F34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {825B0E42-C163-445C-974C-AC5683375AAA}

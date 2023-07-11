@@ -1,0 +1,12 @@
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\bin\Debug\net6.0\WastelandRifleworks.Web.ViewModels.deps.json
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\bin\Debug\net6.0\WastelandRifleworks.Web.ViewModels.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\bin\Debug\net6.0\WastelandRifleworks.Web.ViewModels.pdb
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\obj\Debug\net6.0\WastelandRifleworks.Web.ViewModels.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\obj\Debug\net6.0\WastelandRifleworks.Web.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\obj\Debug\net6.0\WastelandRifleworks.Web.ViewModels.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\obj\Debug\net6.0\WastelandRifleworks.Web.ViewModels.AssemblyInfo.cs
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\obj\Debug\net6.0\WastelandRifleworks.Web.ViewModels.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\obj\Debug\net6.0\WastelandRifleworks.Web.ViewModels.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\obj\Debug\net6.0\refint\WastelandRifleworks.Web.ViewModels.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\obj\Debug\net6.0\WastelandRifleworks.Web.ViewModels.pdb
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\obj\Debug\net6.0\ref\WastelandRifleworks.Web.ViewModels.dll

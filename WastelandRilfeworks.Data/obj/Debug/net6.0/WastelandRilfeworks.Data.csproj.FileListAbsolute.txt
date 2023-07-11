@@ -1,0 +1,14 @@
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\bin\Debug\net6.0\WastelandRilfeworks.Data.deps.json
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\bin\Debug\net6.0\WastelandRilfeworks.Data.runtimeconfig.json
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\bin\Debug\net6.0\WastelandRilfeworks.Data.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\bin\Debug\net6.0\WastelandRilfeworks.Data.pdb
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\WastelandRilfeworks.Data.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\WastelandRilfeworks.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\WastelandRilfeworks.Data.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\WastelandRilfeworks.Data.AssemblyInfo.cs
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\WastelandRilfeworks.Data.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\WastelandRilfeworks.Data.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\refint\WastelandRilfeworks.Data.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\WastelandRilfeworks.Data.pdb
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\WastelandRilfeworks.Data.genruntimeconfig.cache
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\ref\WastelandRilfeworks.Data.dll

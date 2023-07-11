@@ -2,7 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using System.Diagnostics;
-    using Wasteland_Rifleworks.Models;
+    using WastelandRifleworks.Web.ViewModels.Home;
 
     public class HomeController : Controller
     {

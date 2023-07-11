@@ -138,5 +138,10 @@ C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland 
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\obj\Debug\net6.0\Wasteland Rifleworks.pdb
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\obj\Debug\net6.0\Wasteland Rifleworks.genruntimeconfig.cache
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\obj\Debug\net6.0\ref\Wasteland Rifleworks.dll
-C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandCommon.dll
-C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandCommon.pdb
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRilfeworks.Common.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRilfeworks.Data.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRilfeworks.Common.pdb
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRilfeworks.Data.pdb
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRifleworks.Web.ViewModels.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRifleworks.Web.ViewModels.pdb
