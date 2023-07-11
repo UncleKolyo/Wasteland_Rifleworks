@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mjEeIcUVzhC1/mV8ul+f0LhUi6gCXxRJpjFz/A+ql+TUemBqb201KK26aPelgkeMo9rDfNgyxJ0tK/Fbglrb9A==",
+  "dgSpecHash": "IN+w+xZcf+v602S9PHuzGf7sAtVwmAIW+rcXUHOl6Tw02d781i7s/MoKojPmk+tC9XaZkKPRNKXmk2Zr+m3BQw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\Wasteland Rifleworks.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\WastelandRifleworks.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.11\\microsoft.aspnetcore.cryptography.internal.6.0.11.nupkg.sha512",

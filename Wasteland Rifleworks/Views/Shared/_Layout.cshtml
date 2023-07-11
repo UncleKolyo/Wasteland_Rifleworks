@@ -10,36 +10,22 @@
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/Wasteland_Rifleworks.styles.css" asp-append-version="true" />
-
-
 </head>
 
-
-
 <body>
-
 	<header>
-		<nav class="navbar navbar-expand-sm">
+		<nav class="navbar navbar-expand-sm navbar-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Wasteland_Rifleworks</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-						aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-					<ul class="navbar-nav flex-grow-1">
-						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Designs" asp-action="Designs">All Designs</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Submit" asp-action="Submit">Sumbit a design</a>
-						</li>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebApplication1</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
 					</ul>
 					<partial name="_LoginPartial" />
 				</div>
@@ -47,17 +33,12 @@
 		</nav>
 	</header>
 
-
-
-	 <div class="masthead" style="background-image: url('https://i.imgur.com/od4wUpn.png');">
-      <div class="color-overlay d-flex flex-column justify-content-center align-items-center"> 
-    </div>
-
 	<div class="container">
 		<main role="main" class="pb-3">
 			@RenderBody()
 		</main>
 	</div>
+
 	<footer class="border-top footer text-muted">
 		<div class="container">
 			&copy; Wasteland Rifleworks 2023

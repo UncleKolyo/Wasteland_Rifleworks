@@ -771,6 +771,9 @@
       "WastelandRifleworks.Web.ViewModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "WastelandRilfeworks.Common": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/WastelandRifleworks.Web.ViewModels.dll": {}
         },
@@ -793,7 +796,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.11"
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.11",
+          "WastelandRilfeworks.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/WastelandRilfeworks.Data.dll": {}
@@ -2325,9 +2329,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\Wasteland Rifleworks.csproj",
-      "projectName": "Wasteland Rifleworks",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\Wasteland Rifleworks.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\WastelandRifleworks.Web.csproj",
+      "projectName": "WastelandRifleworks.Web",
+      "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\WastelandRifleworks.Web.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\obj\\",
       "projectStyle": "PackageReference",

@@ -12,3 +12,6 @@ C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandR
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\WastelandRilfeworks.Data.pdb
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\WastelandRilfeworks.Data.genruntimeconfig.cache
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\ref\WastelandRilfeworks.Data.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\bin\Debug\net6.0\WastelandRilfeworks.Common.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\bin\Debug\net6.0\WastelandRilfeworks.Common.pdb
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRilfeworks.Data\obj\Debug\net6.0\WastelandRilfeworks.Data.csproj.CopyComplete

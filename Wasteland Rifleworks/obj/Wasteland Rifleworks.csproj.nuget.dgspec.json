@@ -169,7 +169,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -224,7 +228,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

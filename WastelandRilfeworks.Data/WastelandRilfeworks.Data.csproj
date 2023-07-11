@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WastelandGeneralConstants\WastelandRilfeworks.Common.csproj" />
+  </ItemGroup>
+
 </Project>

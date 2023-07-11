@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "WastelandRifleworks.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "WastelandRilfeworks.Common": "1.0.0"
+        },
         "runtime": {
           "WastelandRifleworks.Web.ViewModels.dll": {}
+        }
+      },
+      "WastelandRilfeworks.Common/1.0.0": {
+        "runtime": {
+          "WastelandRilfeworks.Common.dll": {}
         }
       }
     }
   },
   "libraries": {
     "WastelandRifleworks.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WastelandRilfeworks.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
