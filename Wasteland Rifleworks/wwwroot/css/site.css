@@ -18,7 +18,7 @@ body {
 }
 
 .masthead {
-    background-size: cover;
+    background-size:cover;
     min-height: 115vh;
     position: relative;
     color: white;

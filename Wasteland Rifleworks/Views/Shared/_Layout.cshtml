@@ -11,7 +11,10 @@
 
 </head>
 
+
+
 <body>
+
 	<header>
 		<nav class="navbar navbar-expand-sm">
 			<div class="container-fluid">
@@ -28,6 +31,12 @@
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Designs" asp-action="Designs">All Designs</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Submit" asp-action="Submit">Sumbit a design</a>
+						</li>
 					</ul>
 					<partial name="_LoginPartial" />
 				</div>
@@ -35,17 +44,10 @@
 		</nav>
 	</header>
 
-	<p>
-	<hr/>
-					
-	</p>
 
-	 <div 
-      class="masthead"
-      style="background-image: url('https://i.imgur.com/od4wUpn.png');"
-    >
-      <div class="color-overlay d-flex flex-column justify-content-center align-items-center">
-          <h1>Hello, world!</h1>
+
+	 <div class="masthead" style="background-image: url('https://i.imgur.com/od4wUpn.png');">
+      <div class="color-overlay d-flex flex-column justify-content-center align-items-center"> 
     </div>
 
 	<div class="container">
@@ -54,11 +56,6 @@
 		</main>
 	</div>
 
-	<footer class="border-top footer text-muted">
-		<div class="container">
-			&copy; 2023 - Wasteland_Rifleworks - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-		</div>
-	</footer>
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
