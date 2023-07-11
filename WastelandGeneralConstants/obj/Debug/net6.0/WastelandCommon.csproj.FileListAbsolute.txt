@@ -1,0 +1,12 @@
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\bin\Debug\net6.0\WastelandCommon.deps.json
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\bin\Debug\net6.0\WastelandCommon.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\bin\Debug\net6.0\WastelandCommon.pdb
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\obj\Debug\net6.0\WastelandCommon.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\obj\Debug\net6.0\WastelandCommon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\obj\Debug\net6.0\WastelandCommon.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\obj\Debug\net6.0\WastelandCommon.AssemblyInfo.cs
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\obj\Debug\net6.0\WastelandCommon.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\obj\Debug\net6.0\WastelandCommon.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\obj\Debug\net6.0\refint\WastelandCommon.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\obj\Debug\net6.0\WastelandCommon.pdb
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandGeneralConstants\obj\Debug\net6.0\ref\WastelandCommon.dll
