@@ -11,7 +11,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.11",
-          "WastelandRilfeworks.Common": "1.0.0"
+          "WastelandRilfeworks.Common": "1.0.0",
+          "WastelandRilfeworks.Data.Models": "1.0.0"
         },
         "runtime": {
           "WastelandRilfeworks.Data.dll": {}
@@ -545,6 +546,15 @@
         "runtime": {
           "WastelandRilfeworks.Common.dll": {}
         }
+      },
+      "WastelandRilfeworks.Data.Models/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
+          "WastelandRilfeworks.Common": "1.0.0"
+        },
+        "runtime": {
+          "WastelandRilfeworks.Data.Models.dll": {}
+        }
       }
     }
   },
@@ -891,6 +901,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "WastelandRilfeworks.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WastelandRilfeworks.Data.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
