@@ -9,7 +9,7 @@ namespace Wasteland_Rifleworks.Data.Migrations
     using System;
     using Wasteland_Rifleworks.Data;
 
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(HouseRentingDbContext))]
     [Migration("00000000000000_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {
