@@ -706,6 +706,20 @@
         "runtime": {
           "bin/placeholder/WastelandRilfeworks.Common.dll": {}
         }
+      },
+      "WastelandRilfeworks.Data.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
+          "WastelandRilfeworks.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WastelandRilfeworks.Data.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WastelandRilfeworks.Data.Models.dll": {}
+        }
       }
     }
   },
@@ -2023,6 +2037,11 @@
       "type": "project",
       "path": "../WastelandGeneralConstants/WastelandRilfeworks.Common.csproj",
       "msbuildProject": "../WastelandGeneralConstants/WastelandRilfeworks.Common.csproj"
+    },
+    "WastelandRilfeworks.Data.Models/1.0.0": {
+      "type": "project",
+      "path": "../WastelandRilfeworks.Data.Models/WastelandRilfeworks.Data.Models.csproj",
+      "msbuildProject": "../WastelandRilfeworks.Data.Models/WastelandRilfeworks.Data.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2030,7 +2049,8 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.11",
-      "WastelandRilfeworks.Common >= 1.0.0"
+      "WastelandRilfeworks.Common >= 1.0.0",
+      "WastelandRilfeworks.Data.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2063,6 +2083,9 @@
           "projectReferences": {
             "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj": {
               "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj"
+            },
+            "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj"
             }
           }
         }

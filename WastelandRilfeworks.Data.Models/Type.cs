@@ -1,12 +1,23 @@
 ﻿namespace WastelandRilfeworks.Data.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.ComponentModel.DataAnnotations;
+    using static Common.EntityValidationConstraints.Type;
 
-    internal class Type
+    public class Type
     {
+        public Type()
+        {
+            this.Weapons = new HashSet<Weapon>();
+        }
+
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        [MaxLength(NameMaxLenght)]
+        public string Name { get; set; } = null!;
+
+        public virtual ICollection<Weapon> Weapons { get; set; }
+
     }
 }

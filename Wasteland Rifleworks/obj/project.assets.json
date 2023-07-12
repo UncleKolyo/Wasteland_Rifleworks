@@ -797,13 +797,28 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.11",
-          "WastelandRilfeworks.Common": "1.0.0"
+          "WastelandRilfeworks.Common": "1.0.0",
+          "WastelandRilfeworks.Data.Models": "1.0.0"
         },
         "compile": {
           "bin/placeholder/WastelandRilfeworks.Data.dll": {}
         },
         "runtime": {
           "bin/placeholder/WastelandRilfeworks.Data.dll": {}
+        }
+      },
+      "WastelandRilfeworks.Data.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
+          "WastelandRilfeworks.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WastelandRilfeworks.Data.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WastelandRilfeworks.Data.Models.dll": {}
         }
       }
     }
@@ -2310,6 +2325,11 @@
       "type": "project",
       "path": "../WastelandRilfeworks.Data/WastelandRilfeworks.Data.csproj",
       "msbuildProject": "../WastelandRilfeworks.Data/WastelandRilfeworks.Data.csproj"
+    },
+    "WastelandRilfeworks.Data.Models/1.0.0": {
+      "type": "project",
+      "path": "../WastelandRilfeworks.Data.Models/WastelandRilfeworks.Data.Models.csproj",
+      "msbuildProject": "../WastelandRilfeworks.Data.Models/WastelandRilfeworks.Data.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2320,7 +2340,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.5",
       "WastelandRifleworks.Web.ViewModels >= 1.0.0",
       "WastelandRilfeworks.Common >= 1.0.0",
-      "WastelandRilfeworks.Data >= 1.0.0"
+      "WastelandRilfeworks.Data >= 1.0.0",
+      "WastelandRilfeworks.Data.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2356,6 +2377,9 @@
             },
             "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Web.ViewModels\\WastelandRifleworks.Web.ViewModels.csproj": {
               "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Web.ViewModels\\WastelandRifleworks.Web.ViewModels.csproj"
+            },
+            "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj"
             },
             "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data\\WastelandRilfeworks.Data.csproj": {
               "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data\\WastelandRilfeworks.Data.csproj"

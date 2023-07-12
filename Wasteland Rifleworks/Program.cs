@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Wasteland_Rifleworks.Data;
+using WastelandRilfeworks.Data.Models;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -8,15 +9,15 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 string connectionString
     = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<WastelandRifleworksDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = true;
 })
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddEntityFrameworkStores<WastelandRifleworksDbContext>();
 builder.Services.AddControllersWithViews();
 
 WebApplication app = builder.Build();

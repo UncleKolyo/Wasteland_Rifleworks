@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WastelandGeneralConstants\WastelandRilfeworks.Common.csproj" />
+    <ProjectReference Include="..\WastelandRilfeworks.Data.Models\WastelandRilfeworks.Data.Models.csproj" />
   </ItemGroup>
 
 </Project>

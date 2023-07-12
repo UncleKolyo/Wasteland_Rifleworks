@@ -1,12 +1,16 @@
 ﻿namespace WastelandRilfeworks.Data.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
-    internal class Engineer
+    public class Engineer
     {
+        public Guid Id { get; set; }
+
+        public string Username { get; set; }
+
+        public Guid UserId { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
+
+        public int Aprovement { get; set; }
+
     }
 }
