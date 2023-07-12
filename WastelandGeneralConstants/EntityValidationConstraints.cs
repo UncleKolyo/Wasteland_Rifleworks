@@ -21,5 +21,19 @@
             public const int MinComplexity = 0;
             public const int MaxComplexity = 100;
         }
+
+        public static class Tag
+        {
+            public const int NameMinLenght = 5;
+            public const int NameMaxLenght = 25;
+        }
+
+        public static class Engineer
+        {
+            public const int NameMinLenght = 5;
+            public const int NameMaxLenght = 75;
+            public const int MinAprovement = 0;
+            public const int MaxAprovement = 100;
+        }
     }
 }

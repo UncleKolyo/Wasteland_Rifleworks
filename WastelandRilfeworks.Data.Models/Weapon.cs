@@ -8,7 +8,8 @@
     {
         public Weapon()
         {
-
+               this.Tags = new HashSet<Tag>();
+            
         }
 
         [Key]
