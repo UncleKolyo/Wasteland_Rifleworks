@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Wasteland_Rifleworks.Data;
 
@@ -11,9 +12,10 @@ using Wasteland_Rifleworks.Data;
 namespace WastelandRilfeworks.Data.Migrations
 {
     [DbContext(typeof(WastelandRifleworksDbContext))]
-    partial class WastelandRifleworksDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230713144124_Seeddata")]
+    partial class Seeddata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

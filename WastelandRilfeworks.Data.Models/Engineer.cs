@@ -8,6 +8,7 @@
     {
         public Engineer()
         {
+            this.Id = Guid.NewGuid();
             this.EngineeredWeapons = new HashSet<Weapon>();
         }
 

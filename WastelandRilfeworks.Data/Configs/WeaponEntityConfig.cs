@@ -3,7 +3,7 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Models;
-    
+
 
 
     public class WeaponEntityConfig : IEntityTypeConfiguration<Weapon>
@@ -21,6 +21,8 @@
                 .WithMany(e => e.EngineeredWeapons)
                 .HasForeignKey(w => w.EngineerId)
                 .OnDelete(DeleteBehavior.Restrict);
+
         }
+
     }
 }

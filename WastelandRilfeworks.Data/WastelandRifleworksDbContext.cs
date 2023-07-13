@@ -28,6 +28,8 @@
                 Assembly.GetExecutingAssembly();
             builder.ApplyConfigurationsFromAssembly(configAssembly);
 
+
+
             base.OnModelCreating(builder);
         }
 
