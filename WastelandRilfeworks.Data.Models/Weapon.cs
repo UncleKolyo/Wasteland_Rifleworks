@@ -42,10 +42,11 @@
         public Type Type { get; set; } = null!;
 
         [Required]
+        [ForeignKey(nameof(Engineer))]
         public Guid EngineerId { get; set; }
 
         [Required]
-        [ForeignKey(nameof(Engineer))]
+
 
         public Engineer Engineer { get; set; } = null!;
 

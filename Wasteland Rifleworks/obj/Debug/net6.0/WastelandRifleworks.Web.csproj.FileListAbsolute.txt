@@ -75,3 +75,5 @@ C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland 
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\obj\Debug\net6.0\WastelandRifleworks.Web.pdb
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\obj\Debug\net6.0\WastelandRifleworks.Web.genruntimeconfig.cache
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\obj\Debug\net6.0\ref\WastelandRifleworks.Web.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRilfeworks.Data.Models.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRilfeworks.Data.Models.pdb

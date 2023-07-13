@@ -14,7 +14,8 @@
           "Microsoft.EntityFrameworkCore.Tools": "6.0.5",
           "WastelandRifleworks.Web.ViewModels": "1.0.0",
           "WastelandRilfeworks.Common": "1.0.0",
-          "WastelandRilfeworks.Data": "1.0.0"
+          "WastelandRilfeworks.Data": "1.0.0",
+          "WastelandRilfeworks.Data.Models": "1.0.0"
         },
         "runtime": {
           "WastelandRifleworks.Web.dll": {}
@@ -556,10 +557,20 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.11",
-          "WastelandRilfeworks.Common": "1.0.0"
+          "WastelandRilfeworks.Common": "1.0.0",
+          "WastelandRilfeworks.Data.Models": "1.0.0"
         },
         "runtime": {
           "WastelandRilfeworks.Data.dll": {}
+        }
+      },
+      "WastelandRilfeworks.Data.Models/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
+          "WastelandRilfeworks.Common": "1.0.0"
+        },
+        "runtime": {
+          "WastelandRilfeworks.Data.Models.dll": {}
         }
       }
     }
@@ -945,6 +956,11 @@
       "sha512": ""
     },
     "WastelandRilfeworks.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WastelandRilfeworks.Data.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

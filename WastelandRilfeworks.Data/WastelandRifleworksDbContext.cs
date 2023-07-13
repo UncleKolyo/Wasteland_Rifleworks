@@ -28,9 +28,7 @@
                 Assembly.GetExecutingAssembly();
             builder.ApplyConfigurationsFromAssembly(configAssembly);
 
-            builder.Entity<WeaponsTags>().HasKey(wtg => new { wtg.WeaponId, wtg.TagId });
-
-                base.OnModelCreating(builder);
+            base.OnModelCreating(builder);
         }
 
     }

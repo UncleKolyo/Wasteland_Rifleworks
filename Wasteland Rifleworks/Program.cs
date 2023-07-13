@@ -15,7 +15,7 @@ builder.Services.AddDbContext<WastelandRifleworksDbContext>(options =>
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
-    options.SignIn.RequireConfirmedAccount = true;
+    options.SignIn.RequireConfirmedAccount = false;
 })
     .AddEntityFrameworkStores<WastelandRifleworksDbContext>();
 builder.Services.AddControllersWithViews();
