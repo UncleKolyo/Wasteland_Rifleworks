@@ -27,7 +27,8 @@
                 {
                     Id = w.Id,
                     Name = w.Name,
-                    
+                    TitleImagePathString = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), $"{w.Id}*")[0]
+                    //THIS UP BREAK CODE!!!!
                 })
 				.ToArray();
             return lastTwentyWeapons;
