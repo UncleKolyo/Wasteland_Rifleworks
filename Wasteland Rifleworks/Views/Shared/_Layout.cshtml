@@ -26,6 +26,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+						<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Weapon" asp-action="All">All Designs</a>
+                        </li>
+
+						@if (this.User.Identity?.IsAuthenticated ?? false)
+						{
+							<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Weapon" asp-action="Submit">Submit a Design</a>
+                            </li>
+
+							<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Weapon" asp-action="Mine">My Designs</a>
+                            </li>
+
+						}
 					</ul> 
 					
 				</div>
