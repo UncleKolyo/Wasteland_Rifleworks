@@ -2,15 +2,21 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
+	using WastelandRifleworks.Services.Data.Intefaces;
+	using WastelandRifleworks.Web.ViewModels.Home;
 
-    [Authorize]
+	[Authorize]
     public class WeaponController : Controller
     {
-        private Microsoft.AspNetCore.Hosting.IHostingEnvironment Environment;
 
-        public WeaponController(Microsoft.AspNetCore.Hosting.IHostingEnvironment _environment)
+        private readonly IWeaponService weaponService;
+
+        private Microsoft.AspNetCore.Hosting.IWebHostEnvironment Environment;
+       
+        public WeaponController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment _environment, IWeaponService weaponService)
         {
             Environment = _environment;
+            this.weaponService = weaponService;
         }
 
         private readonly string wwwRootDir =
@@ -19,7 +25,9 @@
         [AllowAnonymous]
         public async Task<IActionResult> All()
         {
-            return View();
+            IEnumerable<IndexViewModel> viewModel =
+                await this.weaponService.LastTwentyWeapon();
+            return View(viewModel);
         }
 
         public async Task<IActionResult> Submit()

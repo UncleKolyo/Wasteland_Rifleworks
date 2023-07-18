@@ -9,7 +9,7 @@
         public Weapon()
         {
 
-            
+
             this.Tags = new HashSet<Tag>();
 
         }
@@ -47,8 +47,11 @@
         [ForeignKey(nameof(Engineer))]
         public Guid EngineerId { get; set; }
 
-        [Required]
+        public DateTime CreatedOn { get; set; }
 
+        public string TitleImagePathString { get; set; }
+
+        [Required]
 
         public Engineer Engineer { get; set; } = null!;
 

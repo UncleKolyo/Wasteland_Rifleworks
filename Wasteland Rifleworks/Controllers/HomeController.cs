@@ -2,10 +2,13 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using System.Diagnostics;
-    using WastelandRifleworks.Web.ViewModels.Home;
+	using WastelandRifleworks.Services.Data.Intefaces;
+	using WastelandRifleworks.Web.ViewModels.Home;
 
     public class HomeController : Controller
     {
+       
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

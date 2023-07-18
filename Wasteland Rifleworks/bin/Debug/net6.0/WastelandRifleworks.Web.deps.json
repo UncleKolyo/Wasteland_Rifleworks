@@ -12,6 +12,7 @@
           "Microsoft.AspNetCore.Identity.UI": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.5",
+          "WastelandRifleworks.Services.Data": "1.0.0",
           "WastelandRifleworks.Web.ViewModels": "1.0.0",
           "WastelandRilfeworks.Common": "1.0.0",
           "WastelandRilfeworks.Data": "1.0.0",
@@ -540,6 +541,17 @@
           }
         }
       },
+      "WastelandRifleworks.Services.Data/1.0.0": {
+        "dependencies": {
+          "WastelandRifleworks.Web.ViewModels": "1.0.0",
+          "WastelandRilfeworks.Common": "1.0.0",
+          "WastelandRilfeworks.Data": "1.0.0",
+          "WastelandRilfeworks.Data.Models": "1.0.0"
+        },
+        "runtime": {
+          "WastelandRifleworks.Services.Data.dll": {}
+        }
+      },
       "WastelandRifleworks.Web.ViewModels/1.0.0": {
         "dependencies": {
           "WastelandRilfeworks.Common": "1.0.0"
@@ -944,6 +956,11 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "WastelandRifleworks.Services.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "WastelandRifleworks.Web.ViewModels/1.0.0": {
       "type": "project",

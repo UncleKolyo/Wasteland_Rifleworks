@@ -10,6 +10,9 @@
     {
         public void Configure(EntityTypeBuilder<Weapon> builder)
         {
+
+            builder.Property(w => w.CreatedOn).HasDefaultValue(DateTime.UtcNow);
+
             builder
                 .HasOne(w => w.Type)
                 .WithMany(ty => ty.Weapons)

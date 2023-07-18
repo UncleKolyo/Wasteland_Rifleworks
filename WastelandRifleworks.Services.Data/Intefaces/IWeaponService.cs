@@ -1,12 +1,9 @@
 ﻿namespace WastelandRifleworks.Services.Data.Intefaces
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using WastelandRifleworks.Web.ViewModels.Home;
 
-    internal interface IWeaponService
+    public interface IWeaponService
     {
+        Task<IEnumerable<IndexViewModel>> LastTwentyWeapon();
     }
 }

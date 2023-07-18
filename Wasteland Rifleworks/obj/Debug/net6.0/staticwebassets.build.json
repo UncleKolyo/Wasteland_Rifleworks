@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uk3XsW1B7WtKzUopnRF0MYX8W9m6/IcHyCWRn64wjUg=",
+  "Hash": "J6Y8vlUes9klS/YsZz7rws9ESGB44RHSEkD5i1YIsdU=",
   "Source": "WastelandRifleworks.Web",
   "BasePath": "_content/WastelandRifleworks.Web",
   "Mode": "Default",
@@ -2089,6 +2089,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\Uploads\\1_1_WeaponPic",
+      "SourceId": "WastelandRifleworks.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\",
+      "BasePath": "_content/WastelandRifleworks.Web",
+      "RelativePath": "Uploads/1_1_WeaponPic",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\1_1_WeaponPic"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\Uploads\\1_2_WeaponPic",
+      "SourceId": "WastelandRifleworks.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\",
+      "BasePath": "_content/WastelandRifleworks.Web",
+      "RelativePath": "Uploads/1_2_WeaponPic",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\1_2_WeaponPic"
     }
   ]
 }

@@ -7,14 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Intefaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Wasteland Rifleworks\WastelandRifleworks.Web.csproj" />
     <ProjectReference Include="..\WastelandGeneralConstants\WastelandRilfeworks.Common.csproj" />
     <ProjectReference Include="..\WastelandRifleworks.Web.ViewModels\WastelandRifleworks.Web.ViewModels.csproj" />
     <ProjectReference Include="..\WastelandRilfeworks.Data.Models\WastelandRilfeworks.Data.Models.csproj" />
+    <ProjectReference Include="..\WastelandRilfeworks.Data\WastelandRilfeworks.Data.csproj" />
   </ItemGroup>
 
 </Project>

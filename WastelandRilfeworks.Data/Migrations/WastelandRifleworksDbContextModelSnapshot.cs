@@ -408,6 +408,11 @@ namespace WastelandRilfeworks.Data.Migrations
                     b.Property<int>("Complexity")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2023, 7, 18, 14, 36, 50, 828, DateTimeKind.Utc).AddTicks(9513));
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -422,6 +427,10 @@ namespace WastelandRilfeworks.Data.Migrations
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
+
+                    b.Property<string>("TitleImagePathString")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TypeId")
                         .HasColumnType("int");
