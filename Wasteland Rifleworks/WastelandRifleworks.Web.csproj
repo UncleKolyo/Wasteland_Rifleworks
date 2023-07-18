@@ -22,4 +22,8 @@
     <ProjectReference Include="..\WastelandRilfeworks.Data\WastelandRilfeworks.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Uploads\" />
+  </ItemGroup>
+
 </Project>
