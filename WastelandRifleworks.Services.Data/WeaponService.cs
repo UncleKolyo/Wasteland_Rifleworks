@@ -7,7 +7,7 @@
     using WastelandRifleworks.Services.Data.Intefaces;
     using WastelandRifleworks.Web.ViewModels.Home;
 
-    internal class WeaponService : IWeaponService
+    public class WeaponService : IWeaponService
     {
 
         private readonly WastelandRifleworksDbContext dbContext;
@@ -27,7 +27,7 @@
                 {
                     Id = w.Id,
                     Name = w.Name,
-                    TitleImagePathString = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), $"{w.Id}*")[0]
+                    
                 })
 				.ToArray();
             return lastTwentyWeapons;

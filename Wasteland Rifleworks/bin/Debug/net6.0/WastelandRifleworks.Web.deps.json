@@ -13,6 +13,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.5",
           "WastelandRifleworks.Services.Data": "1.0.0",
+          "WastelandRifleworks.Web.Infrastructure": "1.0.0",
           "WastelandRifleworks.Web.ViewModels": "1.0.0",
           "WastelandRilfeworks.Common": "1.0.0",
           "WastelandRilfeworks.Data": "1.0.0",
@@ -552,6 +553,16 @@
           "WastelandRifleworks.Services.Data.dll": {}
         }
       },
+      "WastelandRifleworks.Web.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "WastelandRifleworks.Services.Data": "1.0.0",
+          "WastelandRilfeworks.Data": "1.0.0"
+        },
+        "runtime": {
+          "WastelandRifleworks.Web.Infrastructure.dll": {}
+        }
+      },
       "WastelandRifleworks.Web.ViewModels/1.0.0": {
         "dependencies": {
           "WastelandRilfeworks.Common": "1.0.0"
@@ -958,6 +969,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "WastelandRifleworks.Services.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WastelandRifleworks.Web.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

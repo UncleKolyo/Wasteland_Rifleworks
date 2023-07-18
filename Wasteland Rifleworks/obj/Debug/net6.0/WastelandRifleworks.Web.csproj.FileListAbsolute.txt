@@ -80,3 +80,5 @@ C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland 
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\appsettings.Production.json
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRifleworks.Services.Data.dll
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRifleworks.Services.Data.pdb
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRifleworks.Web.Infrastructure.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\WastelandRifleworks.Web.Infrastructure.pdb

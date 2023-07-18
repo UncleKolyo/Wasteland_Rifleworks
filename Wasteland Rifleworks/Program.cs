@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Wasteland_Rifleworks.Data;
+using WastelandRifleworks.Services.Data.Intefaces;
+using WastelandRifleworks.Web.Infrastructure.Extensions;
 using WastelandRilfeworks.Data.Models;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -22,6 +24,9 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
     options.Password.RequiredLength = builder.Configuration.GetValue<int>("Identity:Password:RequiredLength");
 })
     .AddEntityFrameworkStores<WastelandRifleworksDbContext>();
+
+builder.Services.AddApplicationServices(typeof(IWeaponService));
+
 builder.Services.AddControllersWithViews();
 
 WebApplication app = builder.Build();
