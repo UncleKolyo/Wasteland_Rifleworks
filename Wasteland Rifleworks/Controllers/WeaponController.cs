@@ -4,29 +4,30 @@
     using Microsoft.AspNetCore.Authorization;
 	using WastelandRifleworks.Services.Data.Intefaces;
 	using WastelandRifleworks.Web.ViewModels.Home;
+    using Microsoft.AspNetCore.Hosting;
 
-	[Authorize]
+
+    [Authorize]
     public class WeaponController : Controller
     {
 
         private readonly IWeaponService weaponService;
 
-        private Microsoft.AspNetCore.Hosting.IWebHostEnvironment Environment;
+        private IWebHostEnvironment environment;
        
-        public WeaponController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment _environment, IWeaponService weaponService)
+        public WeaponController(IWebHostEnvironment environment, IWeaponService weaponService)
         {
-            Environment = _environment;
+            this.environment = environment;
             this.weaponService = weaponService;
         }
-
-        private readonly string wwwRootDir =
-            Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
 
         [AllowAnonymous]
         public async Task<IActionResult> All()
         {
+            string wwwPath = this.environment.WebRootPath;
+
             IEnumerable<IndexViewModel> viewModel =
-                await this.weaponService.LastTwentyWeapon();
+                await this.weaponService.LastTwentyWeapon(wwwPath);
             return View(viewModel);
         }
 
@@ -38,10 +39,13 @@
         [HttpPost]
         public IActionResult Submit(List<IFormFile> postedFiles)
         {
-            string wwwPath = this.Environment.WebRootPath;
-            string contentPath = this.Environment.ContentRootPath;
+            string wwwPath = this.environment.WebRootPath;
+            string contentPath = this.environment.ContentRootPath;
 
-            string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+            Console.WriteLine($"wwwPath:{wwwPath}");
+            Console.WriteLine($"contentPath:{contentPath}");
+
+            string path = Path.Combine(this.environment.WebRootPath, "Uploads");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -52,7 +56,8 @@
             List<string> uploadedFiles = new List<string>();
             foreach (IFormFile postedFile in postedFiles)
             {
-                string fileName = Path.GetFileName($"{1}_{numOfPic}_WeaponPic");
+                string fileExtension = Path.GetFileName(postedFile.FileName.Split('.')[1]);
+                string fileName = Path.GetFileName($"{1}_{numOfPic}_WeaponPic.{fileExtension}");
                 using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
                 {
                     postedFile.CopyTo(stream);

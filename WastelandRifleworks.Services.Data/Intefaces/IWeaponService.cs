@@ -4,6 +4,6 @@
 
     public interface IWeaponService
     {
-        Task<IEnumerable<IndexViewModel>> LastTwentyWeapon();
+        Task<IEnumerable<IndexViewModel>> LastTwentyWeapon(string wwwrootPath);
     }
 }

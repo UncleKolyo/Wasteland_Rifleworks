@@ -1,16 +1,16 @@
 ﻿namespace WastelandRilfeworks.Data.Configs
 {
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Models;
-
-
+    
 
     public class WeaponEntityConfig : IEntityTypeConfiguration<Weapon>
     {
         public void Configure(EntityTypeBuilder<Weapon> builder)
         {
-
+    
             builder.Property(w => w.CreatedOn).HasDefaultValue(DateTime.UtcNow);
 
             builder

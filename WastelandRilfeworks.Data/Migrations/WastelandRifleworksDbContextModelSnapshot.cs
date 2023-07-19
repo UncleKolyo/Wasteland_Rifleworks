@@ -262,6 +262,29 @@ namespace WastelandRilfeworks.Data.Migrations
                     b.ToTable("Engineers");
                 });
 
+            modelBuilder.Entity("WastelandRilfeworks.Data.Models.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(205)
+                        .HasColumnType("nvarchar(205)");
+
+                    b.Property<int>("WeaponId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WeaponId");
+
+                    b.ToTable("Images");
+                });
+
             modelBuilder.Entity("WastelandRilfeworks.Data.Models.Tag", b =>
                 {
                     b.Property<int>("Id")
@@ -411,7 +434,7 @@ namespace WastelandRilfeworks.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 7, 18, 14, 36, 50, 828, DateTimeKind.Utc).AddTicks(9513));
+                        .HasDefaultValue(new DateTime(2023, 7, 19, 14, 47, 53, 720, DateTimeKind.Utc).AddTicks(1076));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -427,10 +450,6 @@ namespace WastelandRilfeworks.Data.Migrations
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
-
-                    b.Property<string>("TitleImagePathString")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TypeId")
                         .HasColumnType("int");
@@ -521,6 +540,17 @@ namespace WastelandRilfeworks.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("WastelandRilfeworks.Data.Models.Image", b =>
+                {
+                    b.HasOne("WastelandRilfeworks.Data.Models.Weapon", "Weapon")
+                        .WithMany("Images")
+                        .HasForeignKey("WeaponId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Weapon");
+                });
+
             modelBuilder.Entity("WastelandRilfeworks.Data.Models.Weapon", b =>
                 {
                     b.HasOne("WastelandRilfeworks.Data.Models.Engineer", "Engineer")
@@ -548,6 +578,11 @@ namespace WastelandRilfeworks.Data.Migrations
             modelBuilder.Entity("WastelandRilfeworks.Data.Models.Type", b =>
                 {
                     b.Navigation("Weapons");
+                });
+
+            modelBuilder.Entity("WastelandRilfeworks.Data.Models.Weapon", b =>
+                {
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

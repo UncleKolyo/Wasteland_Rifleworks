@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "J6Y8vlUes9klS/YsZz7rws9ESGB44RHSEkD5i1YIsdU=",
+  "Hash": "BnoO07aRzvWb4ixQeIJ3S0LXKvo4Kj17qzyKyIf/2wI=",
   "Source": "WastelandRifleworks.Web",
   "BasePath": "_content/WastelandRifleworks.Web",
   "Mode": "Default",
@@ -2091,12 +2091,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\Uploads\\1_1_WeaponPic",
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\Uploads\\1_1_WeaponPic.jpg",
       "SourceId": "WastelandRifleworks.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\",
       "BasePath": "_content/WastelandRifleworks.Web",
-      "RelativePath": "Uploads/1_1_WeaponPic",
+      "RelativePath": "Uploads/1_1_WeaponPic.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2105,15 +2105,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\1_1_WeaponPic"
+      "OriginalItemSpec": "wwwroot\\Uploads\\1_1_WeaponPic.jpg"
     },
     {
-      "Identity": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\Uploads\\1_2_WeaponPic",
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\Uploads\\1_2_WeaponPic.JPG",
       "SourceId": "WastelandRifleworks.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\",
       "BasePath": "_content/WastelandRifleworks.Web",
-      "RelativePath": "Uploads/1_2_WeaponPic",
+      "RelativePath": "Uploads/1_2_WeaponPic.JPG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2122,7 +2122,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\1_2_WeaponPic"
+      "OriginalItemSpec": "wwwroot\\Uploads\\1_2_WeaponPic.JPG"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\Uploads\\1_3_WeaponPic.jpg",
+      "SourceId": "WastelandRifleworks.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\",
+      "BasePath": "_content/WastelandRifleworks.Web",
+      "RelativePath": "Uploads/1_3_WeaponPic.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\1_3_WeaponPic.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\Uploads\\1_4_WeaponPic.jpg",
+      "SourceId": "WastelandRifleworks.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\",
+      "BasePath": "_content/WastelandRifleworks.Web",
+      "RelativePath": "Uploads/1_4_WeaponPic.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\1_4_WeaponPic.jpg"
     }
   ]
 }

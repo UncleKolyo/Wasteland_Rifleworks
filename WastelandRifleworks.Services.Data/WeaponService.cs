@@ -1,7 +1,7 @@
 ﻿namespace WastelandRifleworks.Services.Data
 {
-	using Microsoft.EntityFrameworkCore;
-	using System.Collections.Generic;
+    using Microsoft.EntityFrameworkCore;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Wasteland_Rifleworks.Data;
     using WastelandRifleworks.Services.Data.Intefaces;
@@ -16,10 +16,10 @@
         {
             this.dbContext = dbContext;
         }
-        public async Task<IEnumerable<IndexViewModel>> LastTwentyWeapon()
+        public async Task<IEnumerable<IndexViewModel>> LastTwentyWeapon(string wwwrootPath)
         {
-
-            IEnumerable<IndexViewModel> lastTwentyWeapons = this.dbContext
+            Console.WriteLine(Path.Combine(wwwrootPath, "Uploads", "1_1_WeaponPic.jpg"));
+            IEnumerable<IndexViewModel> lastTwentyWeapons = await this.dbContext
                 .Weapons
                 .OrderByDescending(w => w.CreatedOn)
                 .Take(20)
@@ -27,10 +27,14 @@
                 {
                     Id = w.Id,
                     Name = w.Name,
-                    TitleImagePathString = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), $"{w.Id}*")[0]
-                    //THIS UP BREAK CODE!!!!
+                    Engineer = w.Engineer.User.UserName,
+                    Rating = w.Rating,
+                    Type = w.Type.Name,
+                    FrontImagePath = Path.Combine(wwwrootPath, "Uploads", "1_1_WeaponPic.jpg")
+                    
                 })
-				.ToArray();
+                .ToListAsync();
+
             return lastTwentyWeapons;
         }
     }

@@ -49,7 +49,7 @@
 
         public DateTime CreatedOn { get; set; }
 
-        public string TitleImagePathString { get; set; }
+        public ICollection<Image> Images { get; set; }
 
         [Required]
 

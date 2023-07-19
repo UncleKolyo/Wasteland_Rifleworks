@@ -35,5 +35,11 @@
             public const int MinAprovement = 0;
             public const int MaxAprovement = 100;
         }
+
+        public static class Image
+        {
+            public const int NameMinLenght = 5;
+            public const int NameMaxLenght = 205;
+        }
     }
 }
