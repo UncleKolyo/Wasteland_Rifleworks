@@ -10,7 +10,7 @@
     @foreach (var weapon in Model)
     {
         <div class="card col-4" style="width: 20rem; ">
-            <img class="card-img-top" style="width: 18rem;" src="~/Uploads/@weapon.FrontImagePath" alt="Weapon Image">
+            <img class="card-img-top" style="width: 18rem;" src="~/Uploads/@weapon.ImagesPaths.First()" alt="Weapon Image">
             <div class="card-body">
 
                 <h5 class="card-title mt-1">@weapon.Name</h5>

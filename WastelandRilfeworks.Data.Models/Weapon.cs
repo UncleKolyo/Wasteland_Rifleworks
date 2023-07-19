@@ -9,7 +9,7 @@
         public Weapon()
         {
 
-
+            this.Images = new HashSet<Image>();
             this.Tags = new HashSet<Tag>();
 
         }

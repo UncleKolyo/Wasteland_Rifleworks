@@ -13,6 +13,6 @@
 
         public string Type { get; set; }
 
-        public string FrontImagePath { get; set; }
+        public ICollection<string> ImagesPaths { get; set; }
     }
 }

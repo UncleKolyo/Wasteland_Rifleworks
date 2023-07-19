@@ -2,10 +2,10 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
-	using WastelandRifleworks.Services.Data.Intefaces;
-	using WastelandRifleworks.Web.ViewModels.Home;
+    using WastelandRifleworks.Services.Data.Intefaces;
+    using WastelandRifleworks.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Hosting;
-
+    using WastelandRilfeworks.Data.Models;
 
     [Authorize]
     public class WeaponController : Controller
@@ -14,7 +14,7 @@
         private readonly IWeaponService weaponService;
 
         private IWebHostEnvironment environment;
-       
+
         public WeaponController(IWebHostEnvironment environment, IWeaponService weaponService)
         {
             this.environment = environment;
@@ -37,13 +37,21 @@
         }
 
         [HttpPost]
-        public IActionResult Submit(List<IFormFile> postedFiles)
+        public async Task<IActionResult> Submit(List<IFormFile> postedFiles)
         {
-            string wwwPath = this.environment.WebRootPath;
-            string contentPath = this.environment.ContentRootPath;
+            var weapon = new Weapon
+            {
+                Name = "test",
+                Description = "testDesc",
+                Complexity = 50,
+                Rating = 45,
+                TypeId = 2,
+                EngineerId = Guid.Parse("49A1D5FD-AFEF-4F2B-9CCA-1BA79361DB32"),
+                Tags = new List<Tag> { }
 
-            Console.WriteLine($"wwwPath:{wwwPath}");
-            Console.WriteLine($"contentPath:{contentPath}");
+            };
+
+            await this.weaponService.InsertWeaponAsync(weapon);
 
             string path = Path.Combine(this.environment.WebRootPath, "Uploads");
             if (!Directory.Exists(path))
@@ -56,36 +64,26 @@
             List<string> uploadedFiles = new List<string>();
             foreach (IFormFile postedFile in postedFiles)
             {
-                string fileExtension = Path.GetFileName(postedFile.FileName.Split('.')[1]);
-                string fileName = Path.GetFileName($"{1}_{numOfPic}_WeaponPic.{fileExtension}");
+                string fileExtension = Path.GetExtension(postedFile.FileName);
+                string fileName = Path.GetFileName($"{weapon.Id}_{numOfPic}_WeaponPic.{fileExtension}");
                 using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
                 {
                     postedFile.CopyTo(stream);
                     uploadedFiles.Add(fileName);
                     ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
                 }
+                var image = new Image()
+                {
+                    FileName = fileName,
+                };
+                weapon.Images.Add(image);
                 numOfPic++;
             }
+
+            await this.weaponService.UpdateWeaponAsync(weapon);
 
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Submit(IFormFile formFile)
-        //{
-        //    if (formFile != null)
-        //    {
-        //        var path = Path.Combine
-        //            (wwwRootDir, DateTime.Now.Ticks.ToString() + Path.GetExtension(formFile.FileName));
-
-        //        using (var stream = new FileStream(path, FileMode.Create))
-        //        {
-        //            await formFile.CopyToAsync(stream);
-        //        }
-        //        return RedirectToAction("Submit");
-        //    }
-        //    return View();
-
-        //}
     }
 }

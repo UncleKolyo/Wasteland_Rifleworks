@@ -6,6 +6,7 @@
     using Wasteland_Rifleworks.Data;
     using WastelandRifleworks.Services.Data.Intefaces;
     using WastelandRifleworks.Web.ViewModels.Home;
+    using WastelandRilfeworks.Data.Models;
 
     public class WeaponService : IWeaponService
     {
@@ -16,13 +17,19 @@
         {
             this.dbContext = dbContext;
         }
+
+        public async Task InsertWeaponAsync(Weapon weapon)
+        {
+            await this.dbContext.Weapons.AddAsync(weapon);
+            await this.dbContext.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<IndexViewModel>> LastTwentyWeapon(string wwwrootPath)
         {
             Console.WriteLine(Path.Combine(wwwrootPath, "Uploads", "1_1_WeaponPic.jpg"));
             IEnumerable<IndexViewModel> lastTwentyWeapons = await this.dbContext
                 .Weapons
-                .OrderByDescending(w => w.CreatedOn)
-                .Take(20)
+                .Include(w => w.Images)
                 .Select(w => new IndexViewModel()
                 {
                     Id = w.Id,
@@ -30,12 +37,20 @@
                     Engineer = w.Engineer.User.UserName,
                     Rating = w.Rating,
                     Type = w.Type.Name,
-                    FrontImagePath = Path.Combine(wwwrootPath, "Uploads", "1_1_WeaponPic.jpg")
-                    
+                    ImagesPaths = w.Images.Select(w => w.FileName).OrderBy(w => w).ToList(),
                 })
+                
+                .OrderByDescending(w => w.Id)
+                .Take(20)
                 .ToListAsync();
 
             return lastTwentyWeapons;
+        }
+
+        public async Task UpdateWeaponAsync(Weapon weapon)
+        {
+            this.dbContext.Weapons.Update(weapon);
+           await this.dbContext.SaveChangesAsync();
         }
     }
 }
