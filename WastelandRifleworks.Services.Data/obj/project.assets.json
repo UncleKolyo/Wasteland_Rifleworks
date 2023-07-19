@@ -664,7 +664,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "WastelandRilfeworks.Common": "1.0.0"
+          "WastelandRilfeworks.Common": "1.0.0",
+          "WastelandRilfeworks.Data.Models": "1.0.0"
         },
         "compile": {
           "bin/placeholder/WastelandRifleworks.Web.ViewModels.dll": {}

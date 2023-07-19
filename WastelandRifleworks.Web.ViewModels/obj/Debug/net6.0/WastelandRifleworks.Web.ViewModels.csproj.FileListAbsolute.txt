@@ -13,3 +13,5 @@ C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandR
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\bin\Debug\net6.0\WastelandRilfeworks.Common.dll
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\bin\Debug\net6.0\WastelandRilfeworks.Common.pdb
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\obj\Debug\net6.0\WastelandRifleworks.Web.ViewModels.csproj.CopyComplete
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\bin\Debug\net6.0\WastelandRilfeworks.Data.Models.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\WastelandRifleworks.Web.ViewModels\bin\Debug\net6.0\WastelandRilfeworks.Data.Models.pdb

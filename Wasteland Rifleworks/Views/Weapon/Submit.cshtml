@@ -1,7 +1,8 @@
-﻿@{
-    Layout = null;
+﻿    @model SubmitViewModel
+@{
+    ViewBag.Title = "Submit a Weapon Design";
 }
- 
+
 <!DOCTYPE html>
  
 <html>
@@ -10,6 +11,50 @@
     <title>Index</title>
 </head>
 <body>
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form asp-action="Add" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.Name" class="form-label">Name</label>
+                <input asp-for="@Model.Name" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Complexity" class="form-label">Complexity</label>
+                <input asp-for="@Model.Complexity" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Complexity" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Rating" class="form-label">Rating</label>
+                <input asp-for="@Model.Rating" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Rating" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.TypeId" class="form-label">Type</label>
+                <select asp-for="@Model.TypeId" class="form-control">
+                    @foreach (var tag in @Model.Tags)
+                    {
+                        <option value="@tag.Id">@tag.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="@Model.TypeId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Add" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
     <form method="post" enctype="multipart/form-data" asp-controller="Weapon" asp-action="Submit">
         <span>Select File:</span>
         <input type="file" name="postedFiles" multiple/>

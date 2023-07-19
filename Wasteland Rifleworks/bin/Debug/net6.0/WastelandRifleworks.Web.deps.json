@@ -565,7 +565,8 @@
       },
       "WastelandRifleworks.Web.ViewModels/1.0.0": {
         "dependencies": {
-          "WastelandRilfeworks.Common": "1.0.0"
+          "WastelandRilfeworks.Common": "1.0.0",
+          "WastelandRilfeworks.Data.Models": "1.0.0"
         },
         "runtime": {
           "WastelandRifleworks.Web.ViewModels.dll": {}

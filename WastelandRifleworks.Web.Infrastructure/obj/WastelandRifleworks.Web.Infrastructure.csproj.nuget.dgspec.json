@@ -222,6 +222,9 @@
             "projectReferences": {
               "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj": {
                 "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj"
               }
             }
           }
