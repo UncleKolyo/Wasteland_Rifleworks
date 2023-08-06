@@ -22,7 +22,7 @@
         [Required]
         [ForeignKey(nameof(User))]
         public Guid UserId { get; set; }
-
+ 
         [Required]
         public virtual ApplicationUser User { get; set; } = null!;
 
