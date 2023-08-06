@@ -1,5 +1,6 @@
 ﻿namespace WastelandRifleworks.Services.Data.Intefaces
 {
+    using WastelandRifleworks.Web.ViewModels.Engineer;
     using WastelandRifleworks.Web.ViewModels.Home;
     using WastelandRilfeworks.Data.Models;
 
@@ -7,5 +8,6 @@
     {
         Task<bool> EngineerExistsByUserIdAsync(string userId);
 
+        Task Create(string userId, BecomeEngineerFormModel model);
     }
 }
