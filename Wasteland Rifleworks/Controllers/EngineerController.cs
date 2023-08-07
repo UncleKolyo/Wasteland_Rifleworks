@@ -19,7 +19,7 @@
             this.engineerService = engineerService;
         }
 
-        [HttpGet]
+            [HttpGet]
         public async Task<IActionResult> Become()
         {
             string? userId = this.User.GetId();

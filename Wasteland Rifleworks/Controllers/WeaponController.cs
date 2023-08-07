@@ -30,11 +30,12 @@
                 await this.weaponService.LastTwentyWeapon(wwwPath);
             return View(viewModel);
         }
-
+        [Authorize]
         public async Task<IActionResult> Submit()
         {
             return View();
         }
+        [Authorize]
 
         [HttpPost]
         public async Task<IActionResult> Submit(List<IFormFile> postedFiles)

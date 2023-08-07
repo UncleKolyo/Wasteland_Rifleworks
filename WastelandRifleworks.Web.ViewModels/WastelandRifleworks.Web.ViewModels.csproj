@@ -11,4 +11,8 @@
     <ProjectReference Include="..\WastelandRilfeworks.Data.Models\WastelandRilfeworks.Data.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Tag\" />
+  </ItemGroup>
+
 </Project>
