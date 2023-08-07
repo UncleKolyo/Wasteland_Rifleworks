@@ -9,5 +9,7 @@
         Task<bool> EngineerExistsByUserIdAsync(string userId);
 
         Task Create(string userId, BecomeEngineerFormModel model);
+
+        Task<string?> GetEnginnerIdByUserIdAsync(string userId); 
     }
 }

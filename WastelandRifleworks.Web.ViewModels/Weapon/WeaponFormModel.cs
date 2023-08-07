@@ -4,12 +4,18 @@ namespace WastelandRifleworks.Web.ViewModels.Weapon
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using WastelandRifleworks.Web.ViewModels.Type;
     using WastelandRilfeworks.Data.Models;
 
     public class WeaponFormModel
     {
+        public WeaponFormModel()
+        {
+            this.Types = new List<WeaponTypeFormModel>();
+        }
+
         [Required]
-        [MaxLength()]
+        [MaxLength(150)]
         public string Name { get; set; } = null!;
 
         [Required]
@@ -20,7 +26,7 @@ namespace WastelandRifleworks.Web.ViewModels.Weapon
         [Range(0, 100)]
         public int Complexity { get; set; }
 
-        [Required]
+ 
         [Range(1, 100)]
 
         public int Rating { get; set; }
@@ -29,8 +35,11 @@ namespace WastelandRifleworks.Web.ViewModels.Weapon
 
         public int TypeId { get; set; }
 
+        [Required]
+        public Guid EngineerId { get; set; }
+
         public ICollection<Image> Images { get; set; }
 
-        public IEnumerable<TagViewModel> Tags { get; set; } = new List<TagViewModel>();
+        public IEnumerable<WeaponTypeFormModel> Types { get; set; }
     }
 }

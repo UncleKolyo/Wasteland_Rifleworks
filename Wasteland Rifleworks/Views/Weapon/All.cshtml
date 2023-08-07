@@ -16,7 +16,8 @@
                 <h5 class="card-title mt-1">@weapon.Name</h5>
                 <p class="mb-0">Engineered by: @weapon.Engineer</p>
                 <p class="mb-0">Rating: @weapon.Rating</p>
-                <p >Category: @weapon.Type</p>
+                <p class="mb-0">Complexity: @weapon.Complexity</p>
+                <p >Type: @weapon.Type</p>
             </div>
 
             <form class="input-group-sm" asp-controller="Book" asp-action="AddToCollection" asp-route-id="@weapon.Id">

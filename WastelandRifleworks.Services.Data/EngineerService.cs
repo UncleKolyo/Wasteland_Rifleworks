@@ -38,5 +38,19 @@
             await dbContext.Engineers.AddAsync(newEnginner);
             await dbContext.SaveChangesAsync();
         }
+
+        public async Task<string?> GetEnginnerIdByUserIdAsync(string userId)
+        {
+            Engineer? engineer = await this.dbContext
+                 .Engineers
+                 .FirstOrDefaultAsync(e => e.UserId.ToString() == userId);
+
+            if (engineer == null)
+            {
+                return null;
+            }
+
+            return engineer.Id.ToString();
+        }
     }
 }

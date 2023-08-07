@@ -13,6 +13,8 @@
 
         public string Type { get; set; }
 
+        public int Complexity { get; set; }
+
         public ICollection<string> ImagesPaths { get; set; }
     }
 }

@@ -6,6 +6,7 @@
     using Wasteland_Rifleworks.Data;
     using WastelandRifleworks.Services.Data.Intefaces;
     using WastelandRifleworks.Web.ViewModels.Home;
+    using WastelandRifleworks.Web.ViewModels.Weapon;
     using WastelandRilfeworks.Data.Models;
 
     public class WeaponService : IWeaponService
@@ -17,6 +18,8 @@
         {
             this.dbContext = dbContext;
         }
+
+
 
         public async Task InsertWeaponAsync(Weapon weapon)
         {
@@ -37,6 +40,7 @@
                     Engineer = w.Engineer.User.UserName,
                     Rating = w.Rating,
                     Type = w.Type.Name,
+                    Complexity = w.Complexity,
                     ImagesPaths = w.Images.Select(w => w.FileName).OrderBy(w => w).ToList(),
                 })
                 
@@ -50,7 +54,7 @@
         public async Task UpdateWeaponAsync(Weapon weapon)
         {
             this.dbContext.Weapons.Update(weapon);
-           await this.dbContext.SaveChangesAsync();
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }
