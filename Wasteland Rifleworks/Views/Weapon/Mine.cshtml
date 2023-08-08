@@ -1,0 +1,21 @@
+﻿@model List<AllWeaponViewModel>
+@{
+    ViewData["Title"] = "My Designs";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+<hr/>
+
+@if (!Model.Any())
+{
+    <h2 class="text-center">You haven't engineered any weapon yet! Back to the drawing board!</h2>
+}
+else
+{
+    <div class="row">
+        @foreach (AllWeaponViewModel weapon in Model)
+        {
+            <partial name="_WeaponPartial" model="weapon"/>
+        }
+    </div>
+}

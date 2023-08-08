@@ -13,6 +13,8 @@
         Task InsertWeaponAsync(Weapon weapon);
 
         Task UpdateWeaponAsync(Weapon weapon);
-        //Task UpdateWeaponAsync(WeaponFormModel model);
+
+        Task<IEnumerable<AllWeaponViewModel>> AllByEngineerIdAsync(string engineerId);
+
     }
 }

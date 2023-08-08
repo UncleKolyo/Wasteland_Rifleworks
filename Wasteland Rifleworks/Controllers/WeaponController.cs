@@ -144,6 +144,16 @@
             return RedirectToAction("All", "Weapon");
         }
 
+        public async Task<IActionResult> Mine()
+        {
+            List<AllWeaponViewModel> myWeapons = new List<AllWeaponViewModel>();
 
+            string userId = this.User.GetId()!;
+
+            string? engineerId = await this.engineerService.GetEnginnerIdByUserIdAsync(userId);
+            myWeapons.AddRange(await this.weaponService.AllByEngineerIdAsync(engineerId));
+            
+            return this.View(myWeapons);
+        }
     }
 }

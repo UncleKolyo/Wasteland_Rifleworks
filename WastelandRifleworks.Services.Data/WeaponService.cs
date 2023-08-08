@@ -97,6 +97,28 @@
             };
         }
 
+        public async Task<IEnumerable<AllWeaponViewModel>> AllByEngineerIdAsync(string engineerId)
+        {
+            IEnumerable<AllWeaponViewModel> allWeaponsByEngineer = await dbContext
+                .Weapons
+                .Where(h => h.EngineerId.ToString() == engineerId)
+                .Select(w => new AllWeaponViewModel
+                {
+                    Id = w.Id,
+                    Name = w.Name,
+                    Engineer = w.Engineer.Username,
+                    Rating = w.Rating,
+                    Type = w.Type.Name,
+                    Complexity = w.Complexity,
+                    Description = w.Description,
+                    TagNames = w.Tags.Select(w => w.Name).OrderBy(w => w).ToList(),
+                    ImagesPaths = w.Images.Select(w => w.FileName).OrderBy(w => w).ToList(),
+                })
+                .ToArrayAsync();
+
+            return allWeaponsByEngineer;
+        }
+
         public async Task InsertWeaponAsync(Weapon weapon)
         {
             await this.dbContext.Weapons.AddAsync(weapon);
