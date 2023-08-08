@@ -6,7 +6,9 @@
 
     public interface IWeaponService
     {
-        Task<IEnumerable<IndexViewModel>> LastTwentyWeapon(string wwwrootPath);
+        Task<IEnumerable<AllWeaponViewModel>> LastTwentyWeapon(string wwwrootPath);
+
+        Task<AllWeaponsFilteredAndPagedServiceModel> AllAsync(AllWeaponsQueryModel queryModel, string wwwRootPath);
 
         Task InsertWeaponAsync(Weapon weapon);
 

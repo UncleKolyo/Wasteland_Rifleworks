@@ -9,5 +9,7 @@
         Task<IEnumerable<WeaponTypeFormModel>> AllTypesAsync();
 
         Task<bool> ExistsById(int Id);
+
+        Task<IEnumerable<string>> AllNamesAsync();
     }
 }

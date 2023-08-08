@@ -10,6 +10,8 @@
 
         Task Create(string userId, BecomeEngineerFormModel model);
 
-        Task<string?> GetEnginnerIdByUserIdAsync(string userId); 
+        Task<string?> GetEnginnerIdByUserIdAsync(string userId);
+
+        Task<string?> GetEnginnerUsernameByEnginnerIdAsync(string userId);
     }
 }

@@ -52,5 +52,19 @@
 
             return engineer.Id.ToString();
         }
+
+        public async Task<string?> GetEnginnerUsernameByEnginnerIdAsync(string userId)
+        {
+            Engineer? engineer = await this.dbContext
+                 .Engineers
+                 .FirstOrDefaultAsync(e => e.Id.ToString() == userId);
+
+            if (engineer == null)
+            {
+                return null;
+            }
+
+            return engineer.Username.ToString();
+        }
     }
 }

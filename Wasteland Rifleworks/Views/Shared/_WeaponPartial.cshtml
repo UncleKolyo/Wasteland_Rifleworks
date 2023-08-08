@@ -1,0 +1,73 @@
+﻿@using WastelandRifleworks.Services.Data.Intefaces
+@using WastelandRifleworks.Web.Infrastructure.Extensions
+
+@model AllWeaponViewModel
+
+@inject IEngineerService EngineerService
+@inject IWeaponService WeaponService
+@{
+    bool isUserAgent = await EngineerService.EngineerExistsByUserIdAsync(User.GetId()!);
+}
+
+<div class="col-md-4">
+                <a asp-area="" asp-controller="Weapon" asp-action="Details" asp-route-id="@Model.Id"
+               class="btn">
+    <div class= "card mb-3">
+        <img class="card-img-top" style="width: 18rem;" src="~/Uploads/@Model.ImagesPaths.First()" alt="Weapon Image">
+        <div class="card-body text-center">
+                <h5 class="card-title mt-1">@Model.Name</h5>
+                <p class="mb-0">Engineered by: @Model.Engineer</p>
+                <p class="mb-0">Type: @Model.Type</p>
+                <p class="mb-0">Description: @Model.Description</p>
+                <p class="mb-0">Rating: @Model.Rating</p>
+                <p class="mb-0">Complexity: @Model.Complexity</p>
+
+            <br><p 
+                class="mb-0">Tags: @foreach (var tagName in @Model.TagNames)
+                    {
+                    <label>@tagName,</label>
+                    }
+            </p>
+ 
+            <br />
+
+
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+@*                @if (User.IsAdmin())
+                {
+                    <a asp-area="" asp-controller="House" asp-action="Edit" asp-route-id="@Model.Id"
+                       class="btn btn-warning">Edit</a>
+                    <a asp-area="" asp-controller="House" asp-action="Delete" asp-route-id="@Model.Id"
+                       class="btn btn-danger">Delete</a>
+                }
+                <p></p>*@
+
+            }
+        </div>
+        </a>
+    </div>
+</div>
+
+@*@model AllWeaponViewModel
+
+<div class="text-center row">
+        <div class="card col-4" style="width: 20rem; ">
+            <img class="card-img-top" style="width: 18rem;" src="~/Uploads/@Model.ImagesPaths.First()" alt="Weapon Image">
+            <div class="card-body">
+
+                <h5 class="card-title mt-1">Name</h5>
+                <p class="mb-0">Engineered by: @Model.Engineer</p>
+                <p class="mb-0">Rating: @Model.Rating</p>
+                <p class="mb-0">Complexity: @Model.Complexity</p>
+                <p class="mb-0">Description: @Model.Description</p>
+              <p class="mb-0">Tags: @foreach (var tagName in @Model.TagNames)
+                    {
+                         <label>@tagName,</label>
+                    }
+                    </p>
+                <p >Type: @Model.Type</p>
+            </div>
+        </div>
+</div>
+*@

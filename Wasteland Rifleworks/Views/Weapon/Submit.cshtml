@@ -37,9 +37,46 @@
 					</select>
 					<span asp-validation-for="TypeId" class="small text-danger"></span>
 				</div>
-				<div>
+				
+				<div class="form-group">
+					<select asp-for="FirstTagId" class="form-control" data-role="tagsinput">
+						@foreach (var tag in Model.Tags)
+						{
+							<option value="@tag.Id">@tag.Name</option>
+						}
+					</select>
+					<select asp-for="SecondTagId" class="form-control" data-role="tagsinput">
+						@foreach (var tag in Model.Tags)
+						{
+							<option value="@tag.Id">@tag.Name</option>
+						}
+					</select>
+					<select asp-for="ThirdTagId" class="form-control" data-role="tagsinput">
+						@foreach (var tag in Model.Tags)
+						{
+							<option value="@tag.Id">@tag.Name</option>
+						}
+					</select>
+					<select asp-for="ForthTagId" class="form-control" data-role="tagsinput">
+						@foreach (var tag in Model.Tags)
+						{
+							<option value="@tag.Id">@tag.Name</option>
+						}
+					</select>
+					<select asp-for="FifthTagId" class="form-control" data-role="tagsinput">
+						@foreach (var tag in Model.Tags)
+						{
+							<option value="@tag.Id">@tag.Name</option>
+						}
+					</select>
+
+				</div>
+
+
+				
 
     </form>
+
 </html>
 
 
