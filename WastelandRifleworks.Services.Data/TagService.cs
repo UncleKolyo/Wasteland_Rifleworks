@@ -16,6 +16,17 @@
         {
             this.dbContext = dbContext;
         }
+
+        public async Task<IEnumerable<string>> AllNamesAsync()
+        {
+            IEnumerable<string> names = await this.dbContext
+                .Tags
+                .Select(t => t.Name)
+                .ToArrayAsync();
+
+            return names;
+        }
+
         public async Task<IEnumerable<WeaponTagFormModel>> AllTagsAsync()
         {
             IEnumerable<WeaponTagFormModel> allTags = await dbContext

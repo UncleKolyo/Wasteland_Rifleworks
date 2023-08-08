@@ -1,7 +1,7 @@
 ﻿@model AllWeaponsQueryModel
 
 @{
-    ViewBag.Title = "All Houses";
+    ViewBag.Title = "All Weapons";
 }
 
 <h2 class="text-center">@ViewBag.Title</h2>
@@ -17,6 +17,17 @@
                     @foreach (var type in Model.Types)
                     {
                         <option value="@type">@type</option>
+                    }
+                </select>
+            </div>
+
+             <div class="form-group">
+                <label asp-for="Tag"></label>
+                <select asp-for="Tag" class="form-control">
+                    <option value="">All</option>
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <option value="@tag">@tag</option>
                     }
                 </select>
             </div>
@@ -42,9 +53,10 @@
                 <select asp-for="Sorting" class="form-control">
                     <option value="0">Newest</option>
                     <option value="1">Oldest</option>
-                    <option value="2">Price (Ascending)</option>
-                    <option value="3">Price (Descending)</option>
-                    <option value="4">Not rented first</option>
+                    <option value="2">Complexity (Ascending)</option>
+                    <option value="3">Complexity (Descending)</option>
+                    <option value="4">Top Rated</option>
+                    <option value="5">Least Rated</option>
                 </select>
             </div>
         </div>
@@ -72,10 +84,11 @@
 <div class="row mb-5">
     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-start">
         <a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
-           asp-controller="House"
+           asp-controller="Weapon"
            asp-action="All"
            asp-route-currentPage="@previousPage"
            asp-route-category="@Model.Type"
+           asp-route-category="@Model.Tag"
            asp-route-searchTerm="@Model.SearchTerm"
            asp-route-sorting="@((int)Model.Sorting)"><<</a>
     </div>
@@ -88,10 +101,11 @@
     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
         <a class="btn btn-primary 
            @(shouldNextPageBeDisabled ? "disabled" : string.Empty)"
-           asp-controller="House"
+           asp-controller="Weapon"
            asp-action="All"
            asp-route-currentPage="@(Model.CurrentPage + 1)"
            asp-route-category="@Model.Type"
+           asp-route-category="@Model.Tag"
            asp-route-searchTerm="@Model.SearchTerm"
            asp-route-sorting="@((int)Model.Sorting)">>></a>
     </div>
@@ -99,7 +113,7 @@
 
 @if (!Model.Weapons.Any())
 {
-    <h2 class="text-center">No houses found by the given criteria!</h2>
+    <h2 class="text-center">No Weapons found by the given criteria!</h2>
 }
 
 <div class="row">
@@ -108,63 +122,3 @@
         <partial name="_WeaponPartial" model="@weapon" />
     }
 </div>
-
-@*@model IEnumerable<AllWeaponViewModel>
-@{
-    ViewBag.Title = "All Weapon";
-}
-
-<h2 class="text-center">@ViewBag.Title</h2>
-<hr />
-
-<div class="text-center row">
-    @foreach (var weapon in Model)
-    {
-        <div class="card col-4" style="width: 20rem; ">
-            <img class="card-img-top" style="width: 18rem;" src="~/Uploads/@weapon.ImagesPaths.First()" alt="Weapon Image">
-            <div class="card-body">
-
-                <h5 class="card-title mt-1">@weapon.Name</h5>
-                <p class="mb-0">Engineered by: @weapon.Engineer</p>
-                <p class="mb-0">Rating: @weapon.Rating</p>
-                <p class="mb-0">Complexity: @weapon.Complexity</p>
-                <p class="mb-0">Description: @weapon.Description</p>
-              <p class="mb-0">Tags: @foreach (var tagName in weapon.TagNames)
-                    {
-                         <label>@tagName,</label>
-                    }
-                    </p>
-                <p >Type: @weapon.Type</p>
-            </div>
-        </div>
-    }
-</div>*@
-
-@*@model AllWeaponsQueryModel
-@{
-    ViewBag.Title = "All Weapon";
-}
-
-<h2 class="text-center">@ViewBag.Title</h2>
-<hr />
-
-<div class="text-center row">
-        <div class="card col-4" style="width: 20rem; ">
-            <img class="card-img-top" style="width: 18rem;" src="~/Uploads/ImagesPaths.First()" alt="Weapon Image">
-            <div class="card-body">
-
-                <h5 class="card-title mt-1">Name</h5>
-                <p class="mb-0">Engineered by: Engineer</p>
-                <p class="mb-0">Rating: Rating</p>
-                <p class="mb-0">Complexity: Complexity</p>
-                <p class="mb-0">Description: Description</p>
-              <p class="mb-0">Tags: @foreach (var tagName in Model.TagNames)
-                    {
-                         <label>@tagName,</label>
-                    }
-                    </p>
-                <p >Type: Type</p>
-            </div>
-        </div>
-</div>
-*@

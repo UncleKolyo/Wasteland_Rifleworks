@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nCIqufHIodD+vsGIYC6IaDnVQU6CNnka6354fyxaRhw=",
+  "Hash": "I0eufWFj+uO7VhoLaqq+nS8hJ977fLgyCF43xbGoJso=",
   "Source": "WastelandRifleworks.Web",
   "BasePath": "_content/WastelandRifleworks.Web",
   "Mode": "Default",
@@ -2310,6 +2310,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\51_1_WeaponPic..png"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\Uploads\\52_1_WeaponPic..jpg",
+      "SourceId": "WastelandRifleworks.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\",
+      "BasePath": "_content/WastelandRifleworks.Web",
+      "RelativePath": "Uploads/52_1_WeaponPic..jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\52_1_WeaponPic..jpg"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\Wasteland Rifleworks\\wwwroot\\Uploads\\9_1_WeaponPic..png",

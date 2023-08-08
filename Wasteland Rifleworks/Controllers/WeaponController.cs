@@ -50,6 +50,7 @@
             queryModel.Weapons = serviceModel.Weapons;
             queryModel.TotalWeapons = serviceModel.TotalWeaponsCount;
             queryModel.Types = await typeService.AllNamesAsync();
+            queryModel.Tags = await tagService.AllNamesAsync();
 
             //IEnumerable<AllWeaponViewModel> viewModel =
             //    await this.weaponService.LastTwentyWeapon(wwwPath);

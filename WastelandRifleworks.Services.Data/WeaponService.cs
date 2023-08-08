@@ -10,7 +10,7 @@
     using WastelandRilfeworks.Data.Models;
     using static WastelandRilfeworks.Common.NotificationMessagesConstants;
     using WastelandRifleworks.Web.ViewModels.Weapon.Enums;
-
+    using System.Linq;
 
     public class WeaponService : IWeaponService
     {
@@ -35,6 +35,12 @@
             {
                 weaponsQuery = weaponsQuery
                     .Where(w => w.Type.Name == queryModel.Type);
+            }
+
+            if (!string.IsNullOrWhiteSpace(queryModel.Tag))
+            {
+                weaponsQuery = weaponsQuery
+                    .Where(w => w.Tags.Any(t => t.Name == queryModel.Tag));
             }
 
             if (!string.IsNullOrWhiteSpace(queryModel.SearchTerm))
