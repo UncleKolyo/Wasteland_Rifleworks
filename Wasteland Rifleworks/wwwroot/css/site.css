@@ -54,3 +54,21 @@ h1 {
 hr {
     border-top: 50px solid rgb(169, 134, 49);
 }
+
+green {
+        background-color : green;
+}
+
+yellow {
+        background-color : yellow;
+}
+
+orange {
+    background-color : orange
+}
+
+red {
+    background-color : red;
+}
+
+

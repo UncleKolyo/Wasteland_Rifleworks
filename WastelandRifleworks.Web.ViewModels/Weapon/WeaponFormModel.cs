@@ -22,7 +22,11 @@ namespace WastelandRifleworks.Web.ViewModels.Weapon
 
         [Required]
 
-        public string Description { get; set; } = null!;
+        public string ShortDescription { get; set; } = null!;
+
+        [Required]
+
+        public string FullDescription { get; set; } = null!;
 
         [Required]
         [Range(0, 100)]

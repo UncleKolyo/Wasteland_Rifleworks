@@ -49,7 +49,7 @@
 
                 weaponsQuery = weaponsQuery
                     .Where(w => EF.Functions.Like(w.Name, wildCard) ||
-                                EF.Functions.Like(w.Description, wildCard));
+                                EF.Functions.Like(w.ShortDescription, wildCard));
             }
 
             weaponsQuery = queryModel.Sorting switch
@@ -81,7 +81,7 @@
                    Rating = w.Rating,
                    Type = w.Type.Name,
                    Complexity = w.Complexity,
-                   Description = w.Description,
+                   Description = w.ShortDescription,
                    TagNames = w.Tags.Select(w => w.Name).OrderBy(w => w).ToList(),
                    ImagesPaths = w.Images.Select(w => w.FileName).OrderBy(w => w).ToList(),
 
@@ -110,13 +110,60 @@
                     Rating = w.Rating,
                     Type = w.Type.Name,
                     Complexity = w.Complexity,
-                    Description = w.Description,
+                    Description = w.ShortDescription,
                     TagNames = w.Tags.Select(w => w.Name).OrderBy(w => w).ToList(),
                     ImagesPaths = w.Images.Select(w => w.FileName).OrderBy(w => w).ToList(),
                 })
                 .ToArrayAsync();
 
             return allWeaponsByEngineer;
+        }
+
+        public async Task<WeaponDetailsViewModel> GetDetailsByIdAsync(string weaponId)
+        {
+            Weapon weapon = await this.dbContext
+                .Weapons
+                .FirstAsync(w => w.Id.ToString() == weaponId);
+
+            Engineer engineer = await this.dbContext
+                .Engineers
+                .FirstAsync(e => e.EngineeredWeapons.Contains(weapon));
+
+            Type type = await this.dbContext
+                .Types
+                .FirstAsync(t => t.Weapons.Contains(weapon));
+
+            Schematic chema = await this.dbContext
+                .Schematics
+                .FirstAsync(sc => sc.Id == weapon.WeaponSchematicId);
+
+            string[] imagesPaths = await this.dbContext
+                .Images
+                .Select(w => w.FileName).OrderBy(w => w).ToArrayAsync();
+
+            List<string> tagNames = await this.dbContext
+                .Tags
+                .Where(w => w.Weapons.Contains(weapon))
+                .Select(w => w.Name)
+                .OrderBy(w => w)
+                .ToListAsync();
+
+            WeaponDetailsViewModel weaponDetailsViewModel = new WeaponDetailsViewModel
+            {
+                Id = weapon.Id,
+                Name = weapon.Name,
+                Engineer = engineer.Username,
+                Rating = weapon.Rating,
+                Type = type.Name,
+                Complexity = weapon.Complexity,
+                ShortDescription = weapon.ShortDescription,
+                FullDescription = weapon.FullDescription,
+                TagNames = tagNames,
+                ImagesPaths = imagesPaths,
+                SchematicPath = chema.FileName
+            };
+
+            return weaponDetailsViewModel;
         }
 
         public async Task InsertWeaponAsync(Weapon weapon)
@@ -141,7 +188,7 @@
                     Rating = w.Rating,
                     Type = w.Type.Name,
                     Complexity = w.Complexity,
-                    Description = w.Description,
+                    Description = w.ShortDescription,
                     TagNames = w.Tags.Select(w => w.Name).OrderBy(w => w).ToList(),
                     ImagesPaths = w.Images.Select(w => w.FileName).OrderBy(w => w).ToList(),
                 })

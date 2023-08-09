@@ -16,5 +16,6 @@
 
         Task<IEnumerable<AllWeaponViewModel>> AllByEngineerIdAsync(string engineerId);
 
+        Task<WeaponDetailsViewModel> GetDetailsByIdAsync(string weaponId);
     }
 }

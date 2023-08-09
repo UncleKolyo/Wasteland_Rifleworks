@@ -1,0 +1,129 @@
+﻿@using WastelandRifleworks.Services.Data.Intefaces
+@using WastelandRifleworks.Web.Infrastructure.Extensions
+
+@model WeaponDetailsViewModel
+
+@inject IEngineerService EngineerService
+@inject IWeaponService WeaponService
+@{
+    bool isUserEngineer = await EngineerService.EngineerExistsByUserIdAsync(User.GetId()!);
+}
+
+@{
+    int counter = 1;
+    string titleImage = Model.ImagesPaths.ElementAt(0);
+}
+
+@{
+    ViewBag.Title = "Weapon Details";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+<div class="container" style="display:inline">
+    <div class="form-inline">
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                    @if (isUserEngineer)
+                    {
+                        <a class="btn btn-info" asp-controller="Weapon" asp-action="Edit"
+                           asp-route-id="@Model.Id">Edit</a>
+                        <a class="ml-2 btn btn-warning" asp-controller="Weapon" asp-action="Delete"
+                           asp-route-id="@Model.Id">Delete</a>
+                    }
+
+                  
+                }
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+                    <img class="card-img-top" style="width: 25rem;" src="~/Uploads/@titleImage">
+
+                    @foreach (var image in Model.ImagesPaths)
+                    {
+                        if (counter == 1)
+                {
+                    counter++;
+                    continue;
+                }
+                        <img class="card-img-top" style="width: 18rem;" src="~/Uploads/@image">
+                    }
+                
+        </div>
+        <div class="card col-8 border-0">
+            <p style="font-size:25px;"><u>@Model.Name</u></p>
+            <p style="font-size:15px;">by: <u>@Model.Engineer</u></p>
+            <p>Overview: <b>@Model.ShortDescription</b></p>
+            <p>Description @Model.FullDescription</p>
+            <p>Category: <b>@Model.Type</b></p>
+            @{if (Model.Complexity <= 25)
+                {
+                    <p>Complexity: <span  style="background-color: green; padding: 12px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Complexity.ToString()</span></p>                   
+                }
+            else if (Model.Complexity > 25 && Model.Complexity <= 50)
+                {
+                    <p>Complexity: <span  style="background-color: yellow; padding: 12px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Complexity.ToString()</span></p>                   
+                }
+            else if (Model.Complexity > 50 && Model.Complexity <= 75)
+                {
+                    <p>Complexity: <span  style="background-color: orange; padding: 12px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Complexity.ToString()</span></p>
+                }
+            else
+                {
+                    <p>Complexity: <span  style="background-color: red; color: wheat; padding: 12px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Complexity.ToString()</span></p>
+                }
+            }
+            <p></p>
+            @{if (Model.Rating <= 20)
+                {
+                    <p>Rating: <span  style="background-color: cornflowerblue; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Rating.ToString()%</span></p>                   
+                }
+            else if (Model.Complexity > 20 && Model.Complexity <= 40)
+                {
+                     <p>Rating: <span  style="background-color: dodgerblue; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Rating.ToString()%</span></p>                   
+                }
+            else if (Model.Complexity > 40 && Model.Complexity <= 60)
+                {
+                    <p>Rating: <span  style="background-color: royalblue;  color: wheat;padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Rating.ToString()%</span></p>                   
+                }
+            else if (Model.Complexity > 60 && Model.Complexity <= 80)
+                {
+                    <p>Rating: <span  style="background-color: midnightblue; color: wheat; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Rating.ToString()%</span></p>                   
+                }
+            else
+                {
+                    <p>Complexity: <span  style="background-color: blue; color: wheat; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Complexity.ToString()</span></p>
+                }
+            }
+
+            <p></p>
+
+            <p>Tags: @foreach (var tagName in @Model.TagNames)
+                    {
+                    <span  style="background-color: lightblue;padding: 10px ; border-radius: 5px; border: 1px solid black;">@tagName</span>
+                    }
+             </p>
+@*
+             <div class="col-md-3">
+                <div class="alert alert-success" role="alert">
+                <a href="/Weapon/DownloadSchema/?filepath = @Model.SchematicPath">
+                    <img src="~/@Model.SchematicPath">
+                </a>
+                </div>             
+             </div>
+*@           
+           
+        </div>
+            <div class="">
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                        <a class="btn btn-success" asp-controller="Weapon" asp-action="Like"
+                           asp-route-id="@Model.Id">Like</a>
+                        <a class="ml-2 btn btn-danger" asp-controller="Weapon" asp-action="Dislike"
+                           asp-route-id="@Model.Id">Dislike</a>                 
+                }
+            </div>
+            <p></p>
+    </div>
+</div>

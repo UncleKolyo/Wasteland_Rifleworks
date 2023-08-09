@@ -21,9 +21,13 @@
         [MaxLength(NameMaxLenght)]
         public string Name { get; set; } = null!;
 
-        [Required]
 
-        public string Description { get; set; } = null!;
+
+        [Required]
+        public string ShortDescription { get; set; } = null!;
+
+        [Required]
+        public string FullDescription { get; set; } = null!;
 
         [Required]
         [Range(MinComplexity, MaxComplexity)]
@@ -47,9 +51,17 @@
         [ForeignKey(nameof(Engineer))]
         public Guid EngineerId { get; set; }
 
-        public DateTime CreatedOn { get; set; }
 
         public ICollection<Image> Images { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+
+        [ForeignKey(nameof(WeaponSchematic))]
+
+        public int WeaponSchematicId { get; set; }
+
+        public Schematic WeaponSchematic { get; set; }
 
         [Required]
 

@@ -24,6 +24,8 @@
 
         public DbSet<Image> Images { get; set; }
 
+        public DbSet<Schematic> Schematics { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             Assembly configAssembly = Assembly.GetAssembly(typeof(WastelandRifleworksDbContext)) ??

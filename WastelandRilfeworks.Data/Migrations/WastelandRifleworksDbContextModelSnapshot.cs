@@ -285,6 +285,24 @@ namespace WastelandRilfeworks.Data.Migrations
                     b.ToTable("Images");
                 });
 
+            modelBuilder.Entity("WastelandRilfeworks.Data.Models.Schematic", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(205)
+                        .HasColumnType("nvarchar(205)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Schematics");
+                });
+
             modelBuilder.Entity("WastelandRilfeworks.Data.Models.Tag", b =>
                 {
                     b.Property<int>("Id")
@@ -434,14 +452,14 @@ namespace WastelandRilfeworks.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 7, 19, 14, 47, 53, 720, DateTimeKind.Utc).AddTicks(1076));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasDefaultValue(new DateTime(2023, 8, 8, 18, 53, 3, 585, DateTimeKind.Utc).AddTicks(8389));
 
                     b.Property<Guid>("EngineerId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FullDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -451,7 +469,14 @@ namespace WastelandRilfeworks.Data.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
+                    b.Property<string>("ShortDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WeaponSchematicId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -459,6 +484,8 @@ namespace WastelandRilfeworks.Data.Migrations
                     b.HasIndex("EngineerId");
 
                     b.HasIndex("TypeId");
+
+                    b.HasIndex("WeaponSchematicId");
 
                     b.ToTable("Weapons");
                 });
@@ -565,9 +592,17 @@ namespace WastelandRilfeworks.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("WastelandRilfeworks.Data.Models.Schematic", "WeaponSchematic")
+                        .WithMany()
+                        .HasForeignKey("WeaponSchematicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Engineer");
 
                     b.Navigation("Type");
+
+                    b.Navigation("WeaponSchematic");
                 });
 
             modelBuilder.Entity("WastelandRilfeworks.Data.Models.Engineer", b =>

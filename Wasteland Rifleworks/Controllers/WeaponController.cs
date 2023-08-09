@@ -79,7 +79,7 @@
         [Authorize]
 
         [HttpPost]
-        public async Task<IActionResult> Submit(List<IFormFile> postedFiles, WeaponFormModel model)
+        public async Task<IActionResult> Submit(List<IFormFile> postedFiles, WeaponFormModel model, IFormFile weaponSchematic)
         {
             string? engineerId = await engineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
             string? engineerUsername = await engineerService.GetEnginnerUsernameByEnginnerIdAsync(engineerId)!;
@@ -98,7 +98,8 @@
             var weapon = new Weapon
             {
                 Name = model.Name,
-                Description = model.Description,
+                ShortDescription = model.ShortDescription,
+                FullDescription = model.FullDescription,
                 Complexity = model.Complexity,
                 Rating = 30,
                 TypeId = model.TypeId,
@@ -110,7 +111,7 @@
                 weapon.Tags.Add(tag);
             }
 
-            await this.weaponService.InsertWeaponAsync(weapon);
+            
 
             string path = Path.Combine(this.environment.WebRootPath, "Uploads");
             if (!Directory.Exists(path))
@@ -139,6 +140,21 @@
                 numOfPic++;
             }
 
+            string schemaExtension = Path.GetExtension(weaponSchematic.FileName);
+            string schemaName = Path.GetFileName($"{weapon.Id}_Schematic.{schemaExtension}");
+            using (FileStream stream = new FileStream(Path.Combine(path, schemaName), FileMode.Create))
+            {
+                weaponSchematic.CopyTo(stream);
+                ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", schemaName);
+            }
+            var Schematic = new Schematic()
+            {
+                FileName = schemaName,
+            };
+            weapon.WeaponSchematic = Schematic;
+
+            await this.weaponService.InsertWeaponAsync(weapon);
+
             await this.weaponService.UpdateWeaponAsync(weapon);
 
             return RedirectToAction("All", "Weapon");
@@ -154,6 +170,44 @@
             myWeapons.AddRange(await this.weaponService.AllByEngineerIdAsync(engineerId));
             
             return this.View(myWeapons);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> Details(string id)
+        {
+            //bool weaponExists = await weaponService
+            //    .ex(id);
+            //if (!houseExists)
+            //{
+            //    TempData[ErrorMessage] = "House with the provided id does not exist!";
+
+            //    return RedirectToAction("All", "House");
+            //}
+                WeaponDetailsViewModel viewModel = await weaponService
+                    .GetDetailsByIdAsync(id);
+
+                return View(viewModel);
+        }
+
+        public async Task<IActionResult> DownloadSchema(string id)
+        {
+            string path = Path.Combine(this.environment.WebRootPath, "Uploads");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            var memory = new MemoryStream();
+            using (var stream = new FileStream(path, FileMode.Open, FileAccess.ReadWrite))
+            { 
+            await stream.CopyToAsync(memory);
+            }
+            memory.Position = 0;
+            var contentType = "APPLICATION/octec-stream";
+
+            var fileName = Path.GetFileName(path);
+            return File(memory, contentType, fileName);
         }
     }
 }

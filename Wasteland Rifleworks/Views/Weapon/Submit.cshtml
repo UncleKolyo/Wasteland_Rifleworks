@@ -5,7 +5,8 @@
 
     <form method="post" enctype="multipart/form-data" asp-controller="Weapon" asp-action="Submit">
         <span>Select File:</span>
-        <input type="file" name="postedFiles" multiple/>
+        <input type="file"  name="postedFiles" multiple/>
+		<input type="file"  name="weaponSchematic"/>
         <input type="submit" value="Upload"/>
         <br/>
         <span style="color:green">@Html.Raw(ViewBag.Message)</span>
@@ -22,9 +23,15 @@
 					<span asp-validation-for="@Model.Complexity" class="text-danger"></span>
 				</div>
 				<div class="mb-3">
-					<label asp-for="@Model.Description" class="form-label">Description</label>
-					<input asp-for="@Model.Description" class="form-control" aria-required="true" />
-					<span asp-validation-for="@Model.Description" class="text-danger"></span>
+					<label asp-for="@Model.ShortDescription" class="form-label">Description</label>
+					<input asp-for="@Model.ShortDescription" class="form-control" aria-required="true" />
+					<span asp-validation-for="@Model.ShortDescription" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="@Model.FullDescription" class="form-label">Description</label>
+					<input asp-for="@Model.FullDescription" class="form-control" aria-required="true" />
+					<span asp-validation-for="@Model.FullDescription" class="text-danger"></span>
 				</div>
 
 				<div class="form-group">
@@ -69,14 +76,8 @@
 							<option value="@tag.Id">@tag.Name</option>
 						}
 					</select>
-
 				</div>
-
-
-				
-
-    </form>
-
+	 </form>
 </html>
 
 
