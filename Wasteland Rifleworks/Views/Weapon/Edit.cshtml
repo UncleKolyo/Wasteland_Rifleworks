@@ -1,0 +1,87 @@
+﻿@model WeaponFormModel
+@{
+    ViewData["Title"] = "Edit Weapon";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+<hr/>
+
+<form method="post" enctype="multipart/form-data" asp-controller="Weapon" asp-action="Edit">
+        <span>Select File:</span>
+        <input type="file"  name="postedFiles" multiple/>
+		<input type="file"  name="weaponSchematic"/>
+        <input type="submit" value="Edit"/>
+        <br/>
+        <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+
+		<div class="mb-3">
+					<label asp-for="@Model.Name" class="form-label">Name</label>
+					<input asp-for="@Model.Name" class="form-control" aria-required="true" />
+					<span asp-validation-for="@Model.Name" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="@Model.Complexity" class="form-label">Complexity</label>
+					<input asp-for="@Model.Complexity" class="form-control" aria-required="true" />
+					<span asp-validation-for="@Model.Complexity" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="@Model.ShortDescription" class="form-label">Description</label>
+					<input asp-for="@Model.ShortDescription" class="form-control" aria-required="true" />
+					<span asp-validation-for="@Model.ShortDescription" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="@Model.FullDescription" class="form-label">Description</label>
+					<input asp-for="@Model.FullDescription" class="form-control" aria-required="true" />
+					<span asp-validation-for="@Model.FullDescription" class="text-danger"></span>
+				</div>
+
+				<div class="form-group">
+					<label asp-for="TypeId"></label>
+					<select asp-for="TypeId" class="form-control">
+						@foreach (var type in Model.Types)
+						{
+							<option value="@type.Id">@type.Name</option>
+						}
+					</select>
+					<span asp-validation-for="TypeId" class="small text-danger"></span>
+				</div>
+				
+				<div class="form-group">
+					<select asp-for="FirstTagId" class="form-control" data-role="tagsinput">
+						@foreach (var tag in Model.Tags)
+						{
+							<option value="@tag.Id">@tag.Name</option>
+						}
+					</select>
+					<select asp-for="SecondTagId" class="form-control" data-role="tagsinput">
+						@foreach (var tag in Model.Tags)
+						{
+							<option value="@tag.Id">@tag.Name</option>
+						}
+					</select>
+					<select asp-for="ThirdTagId" class="form-control" data-role="tagsinput">
+						@foreach (var tag in Model.Tags)
+						{
+							<option value="@tag.Id">@tag.Name</option>
+						}
+					</select>
+					<select asp-for="ForthTagId" class="form-control" data-role="tagsinput">
+						@foreach (var tag in Model.Tags)
+						{
+							<option value="@tag.Id">@tag.Name</option>
+						}
+					</select>
+					<select asp-for="FifthTagId" class="form-control" data-role="tagsinput">
+						@foreach (var tag in Model.Tags)
+						{
+							<option value="@tag.Id">@tag.Name</option>
+						}
+					</select>
+				</div>
+	 </form>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

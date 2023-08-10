@@ -1,7 +1,5 @@
 ﻿namespace WastelandRifleworks.Web.ViewModels.Weapon
 {
-    using WastelandRifleworks.Web.ViewModels.Home;
-
     public class AllWeaponsFilteredAndPagedServiceModel
     {
 

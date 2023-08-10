@@ -55,18 +55,17 @@
         {
             var tagIds = new List<int> { FirstId, SecondId, ThirdId, ForthId, FifthId};
 
-            IEnumerable<WeaponTagFormModel> fiveTags = await dbContext
-                .Tags
-                .AsNoTracking()
-                .Select(t => new WeaponTagFormModel()
-                {
-                    Id = t.Id,
-                    Name = t.Name,
-                })
-                .Where(t => tagIds.Contains(t.Id))
-                .ToArrayAsync();
+            List<WeaponTagFormModel> tagFormModels = await dbContext.Tags
+              .Where(tag => tagIds.Contains(tag.Id)) // Filter by tag IDs
+                .Select(tag => new WeaponTagFormModel
+        {
+            Id = tag.Id,
+            Name = tag.Name
+        })
+        .ToListAsync();
 
-            return fiveTags;
+            return tagFormModels;
+
         }
     }
 }

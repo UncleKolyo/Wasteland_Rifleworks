@@ -3,7 +3,6 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
     using WastelandRifleworks.Services.Data.Intefaces;
-    using WastelandRifleworks.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Hosting;
     using WastelandRilfeworks.Data.Models;
     using WastelandRifleworks.Web.ViewModels.Weapon;
@@ -125,7 +124,7 @@
             foreach (IFormFile postedFile in postedFiles)
             {
                 string fileExtension = Path.GetExtension(postedFile.FileName);
-                string fileName = Path.GetFileName($"{weapon.Id}_{numOfPic}_WeaponPic.{fileExtension}");
+                string fileName = Path.GetFileName($"{model.Name}_{numOfPic}_WeaponPic.{fileExtension}");
                 using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
                 {
                     postedFile.CopyTo(stream);
@@ -209,5 +208,196 @@
             var fileName = Path.GetFileName(path);
             return File(memory, contentType, fileName);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            bool weaponExists = await weaponService
+                .ExistsByIdAsync(id);
+            if (!weaponExists)
+            {
+                TempData[ErrorMessage] = "House with the provided id does not exist!";
+
+                return RedirectToAction("All", "House");
+
+                //return this.NotFound(); -> If you want to return 404 page
+            }
+
+            bool isUserEngineer = await engineerService
+                .EngineerExistsByUserIdAsync(User.GetId()!);
+            if (!isUserEngineer/* && !User.IsAdmin()*/)
+            {
+                TempData[ErrorMessage] = "You must become an engineer in order to edit house info!";
+
+                return RedirectToAction("Become", "Engineer");
+            }
+
+            string? engineerId =
+              await engineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
+            bool isEngineerCreator = await weaponService
+                .IsEngineertWithIdCreatorOfWeaponWithIdAsync(id, engineerId!);
+            if (!isEngineerCreator/* && !User.IsAdmin()*/)
+            {
+                TempData[ErrorMessage] = "You must be the creator of the weapon you want to edit!";
+
+                return RedirectToAction("Mine", "Weapon");
+            }
+
+            WeaponFormModel formModel = await weaponService
+                    .GetWeaponForEditbyIdAsync(id);
+                formModel.Types = await typeService.AllTypesAsync();
+                formModel.Tags = await tagService.AllTagsAsync();
+
+
+                return View(formModel);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(string id, WeaponFormModel model)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    model.Types = await typeService.AllTypesAsync();
+
+            //    return View(model);
+            //}
+
+            bool weaponExists = await weaponService
+                .ExistsByIdAsync(id);
+            if (!weaponExists)
+            {
+                TempData[ErrorMessage] = "Weapon with the provided id does not exist!";
+
+                return RedirectToAction("All", "Weapon");
+            }
+
+            bool isUserEngineer = await engineerService
+                .EngineerExistsByUserIdAsync(User.GetId()!);
+            if (!isUserEngineer/* && !User.IsAdmin()*/)
+            {
+                TempData[ErrorMessage] = "You must become an engineer in order to edit house info!";
+
+                return RedirectToAction("Become", "Engineer");
+            }
+
+            string? engineerId =
+              await engineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
+            bool isEngineerCreator = await weaponService
+                .IsEngineertWithIdCreatorOfWeaponWithIdAsync(id, engineerId!);
+            if (!isEngineerCreator/* && !User.IsAdmin()*/)
+            {
+                TempData[ErrorMessage] = "You must be the creator of the weapon you want to edit!";
+
+                return RedirectToAction("Mine", "Weapon");
+            }
+
+            try
+            {
+                await weaponService.EditWeaponByIdAndFormModelAsync(id, model);
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError(string.Empty,
+                    "Unexpected error occurred while trying to update the house. Please try again later or contact administrator!");
+                model.Types = await typeService.AllTypesAsync();
+                model.Tags = await  tagService.AllTagsAsync();
+
+                return View(model);
+            }
+
+            TempData[SuccessMessage] = "House was edited successfully!";
+            return RedirectToAction("Details", "Weapon", new { id });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(string id)
+        {
+            bool weaponExists = await weaponService
+               .ExistsByIdAsync(id);
+            if (!weaponExists)
+            {
+                TempData[ErrorMessage] = "Weapon with the provided id does not exist!";
+
+                return RedirectToAction("All", "Weapon");
+            }
+
+            bool isUserEngineer = await engineerService
+                .EngineerExistsByUserIdAsync(User.GetId()!);
+            if (!isUserEngineer/* && !User.IsAdmin()*/)
+            {
+                TempData[ErrorMessage] = "You must become an engineer in order to edit house info!";
+
+                return RedirectToAction("Become", "Engineer");
+            }
+
+            string? engineerId =
+              await engineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
+            bool isEngineerCreator = await weaponService
+                .IsEngineertWithIdCreatorOfWeaponWithIdAsync(id, engineerId!);
+            if (!isEngineerCreator/* && !User.IsAdmin()*/)
+            {
+                TempData[ErrorMessage] = "You must be the creator of the weapon you want to edit!";
+
+                return RedirectToAction("Mine", "Weapon");
+            }
+
+            try
+            {
+                WeaponPreDeleteViewModel viewModel =
+                    await weaponService.GetWeaponForDeleteByIdAsync(id);
+
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id, WeaponPreDeleteViewModel model)
+        {
+            bool weaponExists = await weaponService
+               .ExistsByIdAsync(id);
+            if (!weaponExists)
+            {
+                TempData[ErrorMessage] = "Weapon with the provided id does not exist!";
+
+                return RedirectToAction("All", "Weapon");
+            }
+
+            bool isUserEngineer = await engineerService
+                .EngineerExistsByUserIdAsync(User.GetId()!);
+            if (!isUserEngineer/* && !User.IsAdmin()*/)
+            {
+                TempData[ErrorMessage] = "You must become an engineer in order to edit house info!";
+
+                return RedirectToAction("Become", "Engineer");
+            }
+
+            string? engineerId =
+              await engineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
+            bool isEngineerCreator = await weaponService
+                .IsEngineertWithIdCreatorOfWeaponWithIdAsync(id, engineerId!);
+            if (!isEngineerCreator/* && !User.IsAdmin()*/)
+            {
+                TempData[ErrorMessage] = "You must be the creator of the weapon you want to edit!";
+
+                return RedirectToAction("Mine", "Weapon");
+            }
+
+            try
+            {
+                await weaponService.DeleteWeaponByIdAsync(id);
+
+                TempData[WarningMessage] = "The house was successfully deleted!";
+                return RedirectToAction("Mine", "House");
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+        }
     }
-}
+} 

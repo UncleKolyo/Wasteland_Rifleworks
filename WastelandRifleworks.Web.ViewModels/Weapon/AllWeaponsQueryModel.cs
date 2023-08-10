@@ -1,6 +1,5 @@
 ﻿namespace WastelandRifleworks.Web.ViewModels.Weapon
 {
-    using WastelandRifleworks.Web.ViewModels.Home;
     using WastelandRifleworks.Web.ViewModels.Tag;
     using WastelandRifleworks.Web.ViewModels.Weapon.Enums;
 
