@@ -7,6 +7,8 @@
 @inject IWeaponService WeaponService
 @{
     bool isUserEngineer = await EngineerService.EngineerExistsByUserIdAsync(User.GetId()!);
+    string engineerId = await EngineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
+    bool isEngineerCreator = await WeaponService.IsEngineertWithIdCreatorOfWeaponWithIdAsync(Model.Id.ToString(), engineerId);
 }
 
 @{
@@ -24,11 +26,11 @@
     <div class="form-inline">
                 @if (User.Identity?.IsAuthenticated ?? false)
                 {
-                    @if (isUserEngineer)
+                    @if (isEngineerCreator)
                     {
-                        <a class="btn btn-info" asp-controller="Weapon" asp-action="Edit"
+                        <a class="btn btn-secondary" asp-controller="Weapon" asp-action="Edit"
                            asp-route-id="@Model.Id">Edit</a>
-                        <a class="ml-2 btn btn-warning" asp-controller="Weapon" asp-action="Delete"
+                        <a class="ml-2 btn btn-secondary" asp-controller="Weapon" asp-action="Delete"
                            asp-route-id="@Model.Id">Delete</a>
                     }
 
@@ -118,10 +120,16 @@
             <div class="">
                 @if (User.Identity?.IsAuthenticated ?? false)
                 {
-                        <a class="btn btn-success" asp-controller="Weapon" asp-action="Like"
+                   @if (isUserEngineer && !isEngineerCreator)
+                  {
+                    <a class="btn btn-success" asp-controller="Weapon" asp-action="Like"
                            asp-route-id="@Model.Id">Like</a>
                         <a class="ml-2 btn btn-danger" asp-controller="Weapon" asp-action="Dislike"
-                           asp-route-id="@Model.Id">Dislike</a>                 
+                           asp-route-id="@Model.Id">Dislike</a> 
+              
+                    
+                  }
+                                        
                 }
             </div>
             <p></p>

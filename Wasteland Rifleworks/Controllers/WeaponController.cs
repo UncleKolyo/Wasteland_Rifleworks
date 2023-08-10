@@ -392,7 +392,7 @@
                 await weaponService.DeleteWeaponByIdAsync(id);
 
                 TempData[WarningMessage] = "The house was successfully deleted!";
-                return RedirectToAction("Mine", "House");
+                return RedirectToAction("Mine", "Weapon");
             }
             catch (Exception)
             {

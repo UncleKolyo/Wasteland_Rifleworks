@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Wasteland_Rifleworks.Data;
 using WastelandRifleworks.Services.Data.Intefaces;
@@ -29,9 +30,23 @@ builder.Services.AddApplicationServices(typeof(IWeaponService));
 
 builder.Services.AddControllersWithViews();
 
+// Configure the HTTP request pipeline.
+
+builder.Services.ConfigureApplicationCookie(cfg =>
+{
+    cfg.LoginPath = "/User/Login";
+    cfg.AccessDeniedPath = "/Home/Error/401";
+});
+
+builder.Services
+    .AddControllersWithViews()
+    .AddMvcOptions(options =>
+    {
+        options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+    });
+
 WebApplication app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -39,7 +54,9 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/Home/Error/500");
+    app.UseStatusCodePagesWithRedirects("/Home/Error?statusCode={0}");
+
     app.UseHsts();
 }
 

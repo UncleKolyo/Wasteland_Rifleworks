@@ -1,5 +1,12 @@
-﻿
+﻿@using WastelandRifleworks.Services.Data.Intefaces
+@using WastelandRifleworks.Web.Infrastructure.Extensions
+
 @using static WastelandGeneralConstants.WastelandGeneralConstants;
+
+@inject IEngineerService EngineerService
+@{
+bool isEngineer = await EngineerService.EngineerExistsByUserIdAsync(this.User.GetId());
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,14 +43,16 @@
 
 						@if (this.User.Identity?.IsAuthenticated ?? false)
 						{
-							<li class="nav-item">
+							if (isEngineer)
+							{
+								<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Weapon" asp-action="Submit">Submit a Design</a>
                             </li>
 
 							<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Weapon" asp-action="Mine">My Designs</a>
                             </li>
-
+							}							
 						}
 					</ul> 
 					
