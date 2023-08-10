@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
     using static Common.EntityValidationConstraints.Image;
     public class Image
     {
@@ -10,10 +11,10 @@
 
         [Required]
         [MaxLength(NameMaxLenght)]
-        public string FileName { get; set; }
+        public string FileName { get; set; } = null!;
 
         [ForeignKey(nameof(Weapon))]
         public int WeaponId { get; set; }
-        public Weapon Weapon { get; set; }
+        public Weapon Weapon { get; set; } = null!;
     }
 }

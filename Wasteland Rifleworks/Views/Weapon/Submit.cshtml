@@ -2,7 +2,8 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
-
+<html>
+	<body>
     <form method="post" enctype="multipart/form-data" asp-controller="Weapon" asp-action="Submit">
         <span>Select File:</span>
         <input type="file"  name="postedFiles" multiple/>
@@ -78,6 +79,7 @@
 					</select>
 				</div>
 	 </form>
+	 </body>
 </html>
 
 

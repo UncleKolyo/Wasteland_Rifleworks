@@ -115,6 +115,71 @@
             };
             tags.Add(tag);
 
+            tag = new Tag()
+            {
+                Id = 16,
+                Name = "Lightweight"
+            };
+            tags.Add(tag);
+
+            tag = new Tag()
+            {
+                Id = 17,
+                Name = "Heavy"
+            };
+            tags.Add(tag);
+
+            tag = new Tag()
+            {
+                Id = 18,
+                Name = "Crude"
+            };
+            tags.Add(tag);
+
+            tag = new Tag()
+            {
+                Id = 19,
+                Name = "More Sophisticated"
+            };
+            tags.Add(tag);
+
+
+            tag = new Tag()
+            {
+                Id = 20,
+                Name = "Welded"
+            };
+            tags.Add(tag);
+
+            tag = new Tag()
+            {
+                Id = 21,
+                Name = "Riveted"
+            };
+            tags.Add(tag);
+
+            tag = new Tag()
+            {
+                Id = 22,
+                Name = "Hand Forged"
+            };
+            tags.Add(tag);
+
+            tag = new Tag()
+            {
+                Id = 23,
+                Name = "Dangerous"
+            };
+            tags.Add(tag);
+
+            tag = new Tag()
+            {
+                Id = 24,
+                Name = "Just for Fun"
+            };
+            tags.Add(tag);
+
+
             return tags.ToArray();
         }
     }

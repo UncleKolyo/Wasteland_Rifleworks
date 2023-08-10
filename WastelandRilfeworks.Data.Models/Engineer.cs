@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
     using static Common.EntityValidationConstraints.Engineer;
 
     public class Engineer

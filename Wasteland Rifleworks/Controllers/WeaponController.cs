@@ -2,13 +2,15 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
-    using WastelandRifleworks.Services.Data.Intefaces;
     using Microsoft.AspNetCore.Hosting;
+
+    using WastelandRifleworks.Services.Data.Intefaces;
+    using Wasteland_Rifleworks.Data;
     using WastelandRilfeworks.Data.Models;
     using WastelandRifleworks.Web.ViewModels.Weapon;
     using WastelandRifleworks.Web.Infrastructure.Extensions;
-    using static WastelandRilfeworks.Common.NotificationMessagesConstants;
-    using Wasteland_Rifleworks.Data;
+
+    using static WastelandRilfeworks.Common.NotificationMessagesConstants;   
 
 
 
@@ -51,8 +53,6 @@
             queryModel.Types = await typeService.AllNamesAsync();
             queryModel.Tags = await tagService.AllNamesAsync();
 
-            //IEnumerable<AllWeaponViewModel> viewModel =
-            //    await this.weaponService.LastTwentyWeapon(wwwPath);
             return View(queryModel);
         }
         [Authorize]
@@ -81,7 +81,7 @@
         public async Task<IActionResult> Submit(List<IFormFile> postedFiles, WeaponFormModel model, IFormFile weaponSchematic)
         {
             string? engineerId = await engineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
-            string? engineerUsername = await engineerService.GetEnginnerUsernameByEnginnerIdAsync(engineerId)!;
+            string? engineerUsername = await engineerService.GetEnginnerUsernameByEnginnerIdAsync(engineerId!)!;
 
             var tagIds = new List<int> { model.FirstTagId, model.SecondTagId, model.ThirdTagId, model.ForthTagId, model.FifthTagId };
 
@@ -102,7 +102,7 @@
                 Complexity = model.Complexity,
                 Rating = 30,
                 TypeId = model.TypeId,
-                EngineerId = Guid.Parse(engineerId),
+                EngineerId = Guid.Parse(engineerId!),
             };
 
             foreach (var tag in selectedTags)
@@ -166,7 +166,7 @@
             string userId = this.User.GetId()!;
 
             string? engineerId = await this.engineerService.GetEnginnerIdByUserIdAsync(userId);
-            myWeapons.AddRange(await this.weaponService.AllByEngineerIdAsync(engineerId));
+            myWeapons.AddRange(await this.weaponService.AllByEngineerIdAsync(engineerId!));
             
             return this.View(myWeapons);
         }
@@ -175,18 +175,11 @@
         [AllowAnonymous]
         public async Task<IActionResult> Details(string id)
         {
-            //bool weaponExists = await weaponService
-            //    .ex(id);
-            //if (!houseExists)
-            //{
-            //    TempData[ErrorMessage] = "House with the provided id does not exist!";
-
-            //    return RedirectToAction("All", "House");
-            //}
                 WeaponDetailsViewModel viewModel = await weaponService
                     .GetDetailsByIdAsync(id);
 
-                return View(viewModel);
+
+            return View(viewModel);
         }
 
         public async Task<IActionResult> DownloadSchema(string id)
@@ -216,7 +209,7 @@
                 .ExistsByIdAsync(id);
             if (!weaponExists)
             {
-                TempData[ErrorMessage] = "House with the provided id does not exist!";
+                TempData[ErrorMessage] = "Weapon with the provided id does not exist!";
 
                 return RedirectToAction("All", "House");
 
@@ -256,12 +249,6 @@
         [HttpPost]
         public async Task<IActionResult> Edit(string id, WeaponFormModel model)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    model.Types = await typeService.AllTypesAsync();
-
-            //    return View(model);
-            //}
 
             bool weaponExists = await weaponService
                 .ExistsByIdAsync(id);
@@ -299,14 +286,14 @@
             catch (Exception)
             {
                 ModelState.AddModelError(string.Empty,
-                    "Unexpected error occurred while trying to update the house. Please try again later or contact administrator!");
+                    "Something broke. Idk, contact and Admin or something, or try again...");
                 model.Types = await typeService.AllTypesAsync();
                 model.Tags = await  tagService.AllTagsAsync();
 
                 return View(model);
             }
 
-            TempData[SuccessMessage] = "House was edited successfully!";
+            TempData[SuccessMessage] = "Weapon was edited successfully!";
             return RedirectToAction("Details", "Weapon", new { id });
         }
 
@@ -398,6 +385,32 @@
             {
                 return View("Error");
             }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ToggleLike(string weaponId)
+        {
+            string userId = this.User.GetId()!;
+
+            string? engineerId = await this.engineerService.GetEnginnerIdByUserIdAsync(userId);
+
+            await weaponService.ToggleUserReactionAsync(engineerId, weaponId, ReactionType.Like);
+
+            // Redirect back to the details page
+            return RedirectToAction("Details", new { id = weaponId });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ToggleDislike(string weaponId)
+        {
+            string userId = this.User.GetId()!;
+
+            string? engineerId = await this.engineerService.GetEnginnerIdByUserIdAsync(userId);
+
+            await weaponService.ToggleUserReactionAsync(engineerId, weaponId, ReactionType.Dislike);
+
+            // Redirect back to the details page
+            return RedirectToAction("Details", new { id = weaponId });
         }
     }
 } 

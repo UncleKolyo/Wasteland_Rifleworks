@@ -27,47 +27,9 @@
                     {
                     <label><span  style="background-color: lightblue;padding: 2px ; border-radius: 1px; border: 1px solid black;">@tagName</span></label>
                     }
-            </p>
- 
+            </p> 
             <br />
-
-
-            @if (User.Identity?.IsAuthenticated ?? false)
-            {
-@*                @if (User.IsAdmin())
-                {
-                    <a asp-area="" asp-controller="House" asp-action="Edit" asp-route-id="@Model.Id"
-                       class="btn btn-warning">Edit</a>
-                    <a asp-area="" asp-controller="House" asp-action="Delete" asp-route-id="@Model.Id"
-                       class="btn btn-danger">Delete</a>
-                }
-                <p></p>*@
-
-            }
         </div>
         </a>
     </div>
 </div>
-
-@*@model AllWeaponViewModel
-
-<div class="text-center row">
-        <div class="card col-4" style="width: 20rem; ">
-            <img class="card-img-top" style="width: 18rem;" src="~/Uploads/@Model.ImagesPaths.First()" alt="Weapon Image">
-            <div class="card-body">
-
-                <h5 class="card-title mt-1">Name</h5>
-                <p class="mb-0">Engineered by: @Model.Engineer</p>
-                <p class="mb-0">Rating: @Model.Rating</p>
-                <p class="mb-0">Complexity: @Model.Complexity</p>
-                <p class="mb-0">Description: @Model.Description</p>
-              <p class="mb-0">Tags: @foreach (var tagName in @Model.TagNames)
-                    {
-                         <label>@tagName,</label>
-                    }
-                    </p>
-                <p >Type: @Model.Type</p>
-            </div>
-        </div>
-</div>
-*@

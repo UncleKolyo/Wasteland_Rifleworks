@@ -1,6 +1,7 @@
 ﻿namespace WastelandRilfeworks.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
+
     using static Common.EntityValidationConstraints.Type;
 
     public class Type

@@ -17,8 +17,8 @@
 
         public string? Type { get; set; }
 
-        public string Tag { get; set; }
-        public string SearchTerm { get; set; }
+        public string Tag { get; set; } = null!;
+        public string SearchTerm { get; set; } = null!;
 
         public WeaponSorting Sorting { get; set; }
 

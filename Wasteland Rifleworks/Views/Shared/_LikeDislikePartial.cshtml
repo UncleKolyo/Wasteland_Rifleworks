@@ -1,0 +1,20 @@
+﻿@model WeaponDetailsViewModel
+
+<div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form method="post" asp-action="ToggleLike" asp-route-weaponId="@Model.Id">
+            <button type="submit" class="btn btn-primary">
+                @if (Model.HasUserLiked) { <text>Unlike</text> } 
+                else { <text>Like</text> }
+            </button>
+        </form>
+        
+        <form method="post" asp-action="ToggleDislike" asp-route-weaponId="@Model.Id">
+            <button type="submit" class="btn btn-danger">
+                @if (Model.HasUserDisliked) { <text>Undislike</text> } 
+                else { <text>Dislike</text> }
+            </button>
+        </form>
+    }
+</div>

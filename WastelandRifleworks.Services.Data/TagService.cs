@@ -1,12 +1,13 @@
 ﻿namespace WastelandRifleworks.Services.Data
 {
     using Microsoft.EntityFrameworkCore;
+
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
     using Wasteland_Rifleworks.Data;
     using WastelandRifleworks.Services.Data.Intefaces;
     using WastelandRifleworks.Web.ViewModels.Tag;
-    using WastelandRilfeworks.Data.Models;
 
     public class TagService : ITagService
     {
@@ -56,7 +57,7 @@
             var tagIds = new List<int> { FirstId, SecondId, ThirdId, ForthId, FifthId};
 
             List<WeaponTagFormModel> tagFormModels = await dbContext.Tags
-              .Where(tag => tagIds.Contains(tag.Id)) // Filter by tag IDs
+              .Where(tag => tagIds.Contains(tag.Id)) 
                 .Select(tag => new WeaponTagFormModel
         {
             Id = tag.Id,

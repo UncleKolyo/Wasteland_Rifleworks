@@ -5,8 +5,6 @@
 
     public interface IWeaponService
     {
-        Task<IEnumerable<AllWeaponViewModel>> LastTwentyWeapon(string wwwrootPath);
-
         Task<AllWeaponsFilteredAndPagedServiceModel> AllAsync(AllWeaponsQueryModel queryModel, string wwwRootPath);
 
         Task InsertWeaponAsync(Weapon weapon);
@@ -29,6 +27,6 @@
 
         Task DeleteWeaponByIdAsync(string weaponId);
 
-
+        Task ToggleUserReactionAsync(string engineerId, string weaponId, ReactionType reactionType);
     }
 }

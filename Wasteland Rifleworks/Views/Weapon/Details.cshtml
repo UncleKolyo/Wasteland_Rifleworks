@@ -7,8 +7,8 @@
 @inject IWeaponService WeaponService
 @{
     bool isUserEngineer = await EngineerService.EngineerExistsByUserIdAsync(User.GetId()!);
-    string engineerId = await EngineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
-    bool isEngineerCreator = await WeaponService.IsEngineertWithIdCreatorOfWeaponWithIdAsync(Model.Id.ToString(), engineerId);
+    string? engineerId = await EngineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
+    bool isEngineerCreator = await WeaponService.IsEngineertWithIdCreatorOfWeaponWithIdAsync(Model.Id.ToString(), engineerId!);
 }
 
 @{
@@ -79,23 +79,23 @@
             <p></p>
             @{if (Model.Rating <= 20)
                 {
-                    <p>Rating: <span  style="background-color: cornflowerblue; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Rating.ToString()%</span></p>                   
+                    <p>Rating: <span  style="background-color: cornflowerblue; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">Bad</span></p>                   
                 }
-            else if (Model.Complexity > 20 && Model.Complexity <= 40)
+            else if (Model.Rating > 20 && Model.Rating <= 40)
                 {
-                     <p>Rating: <span  style="background-color: dodgerblue; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Rating.ToString()%</span></p>                   
+                     <p>Rating: <span  style="background-color: dodgerblue; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">Better</span></p>                   
                 }
-            else if (Model.Complexity > 40 && Model.Complexity <= 60)
+            else if (Model.Rating > 40 && Model.Rating <= 60)
                 {
-                    <p>Rating: <span  style="background-color: royalblue;  color: wheat;padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Rating.ToString()%</span></p>                   
+                    <p>Rating: <span  style="background-color: royalblue;  color: wheat;padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">Good</span></p>                   
                 }
-            else if (Model.Complexity > 60 && Model.Complexity <= 80)
+            else if (Model.Rating > 60 && Model.Rating <= 80)
                 {
-                    <p>Rating: <span  style="background-color: midnightblue; color: wheat; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Rating.ToString()%</span></p>                   
+                    <p>Rating: <span  style="background-color: midnightblue; color: wheat; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">Nice</span></p>                   
                 }
             else
                 {
-                    <p>Complexity: <span  style="background-color: blue; color: wheat; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">@Model.Complexity.ToString()</span></p>
+                    <p>Complexity: <span  style="background-color: blue; color: wheat; padding: 10px; box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid black;">Excelent</span></p>
                 }
             }
 
@@ -106,15 +106,6 @@
                     <span  style="background-color: lightblue;padding: 10px ; border-radius: 5px; border: 1px solid black;">@tagName</span>
                     }
              </p>
-@*
-             <div class="col-md-3">
-                <div class="alert alert-success" role="alert">
-                <a href="/Weapon/DownloadSchema/?filepath = @Model.SchematicPath">
-                    <img src="~/@Model.SchematicPath">
-                </a>
-                </div>             
-             </div>
-*@           
            
         </div>
             <div class="">
@@ -122,12 +113,7 @@
                 {
                    @if (isUserEngineer && !isEngineerCreator)
                   {
-                    <a class="btn btn-success" asp-controller="Weapon" asp-action="Like"
-                           asp-route-id="@Model.Id">Like</a>
-                        <a class="ml-2 btn btn-danger" asp-controller="Weapon" asp-action="Dislike"
-                           asp-route-id="@Model.Id">Dislike</a> 
-              
-                    
+                     @Html.Partial("_LikeDislikePartial", @Model)
                   }
                                         
                 }

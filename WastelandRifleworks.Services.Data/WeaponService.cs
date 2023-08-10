@@ -1,16 +1,18 @@
 ﻿namespace WastelandRifleworks.Services.Data
 {
     using Microsoft.EntityFrameworkCore;
+
+    using System.Linq;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
     using Wasteland_Rifleworks.Data;
     using WastelandRifleworks.Services.Data.Intefaces;
     using WastelandRifleworks.Web.ViewModels.Weapon;
     using WastelandRilfeworks.Data.Models;
-    using static WastelandRilfeworks.Common.NotificationMessagesConstants;
     using WastelandRifleworks.Web.ViewModels.Weapon.Enums;
-    using System.Linq;
     using WastelandRifleworks.Web.ViewModels.Tag;
+
 
     public class WeaponService : IWeaponService
     {
@@ -19,7 +21,7 @@
 
         private readonly IEngineerService engineerService;
 
-        private readonly ITagService tagService;
+        private readonly ITagService tagService = null!;
 
         public WeaponService(WastelandRifleworksDbContext dbContext, IEngineerService engineerService)
         {
@@ -57,19 +59,19 @@
             weaponsQuery = queryModel.Sorting switch
             {
                 WeaponSorting.Newest => weaponsQuery
-                    .OrderByDescending(h => h.CreatedOn),
+                    .OrderByDescending(w => w.CreatedOn),
                 WeaponSorting.Oldest => weaponsQuery
-                    .OrderBy(h => h.CreatedOn),
+                    .OrderBy(w => w.CreatedOn),
                 WeaponSorting.MostComplex => weaponsQuery
-                    .OrderBy(h => h.Complexity),
+                    .OrderBy(w => w.Complexity),
                 WeaponSorting.LeastComplex => weaponsQuery
-                    .OrderByDescending(h => h.Complexity),
+                    .OrderByDescending(w => w.Complexity),
                 WeaponSorting.TopRated => weaponsQuery
-                    .OrderBy(h => h.Rating),
+                    .OrderBy(w => w.Rating),
                 WeaponSorting.LeastRated => weaponsQuery
-                    .OrderByDescending(h => h.Rating),
+                    .OrderByDescending(w => w.Rating),
                 _ => weaponsQuery
-                    .OrderBy(h => h.CreatedOn)
+                    .OrderBy(w => w.CreatedOn)
             };
 
             IEnumerable<AllWeaponViewModel> allweapons = await weaponsQuery
@@ -103,7 +105,7 @@
         {
             IEnumerable<AllWeaponViewModel> allWeaponsByEngineer = await dbContext
                 .Weapons
-                .Where(h => h.EngineerId.ToString() == engineerId)
+                .Where(e => e.EngineerId.ToString() == engineerId)
                 .Select(w => new AllWeaponViewModel
                 {
                     Id = w.Id,
@@ -135,16 +137,16 @@
                 .Types
                 .FirstAsync(t => t.Weapons.Contains(weapon));
 
-            Schematic chema = await this.dbContext
+            Schematic schema = await this.dbContext
                 .Schematics
                 .FirstAsync(sc => sc.Id == weapon.WeaponSchematicId);
 
             string[] imagesPaths = await this.dbContext
                 .Images
-        .Where(image => image.WeaponId == weapon.Id) // Filter by weapon ID
-        .Select(image => image.FileName)
-        .OrderBy(fileName => fileName)
-        .ToArrayAsync();
+                   .Where(image => image.WeaponId == weapon.Id) // Filter by weapon ID
+                     .Select(image => image.FileName)
+                     .OrderBy(fileName => fileName)
+                     .ToArrayAsync();
 
             List<string> tagNames = await this.dbContext
                 .Tags
@@ -165,7 +167,7 @@
                 FullDescription = weapon.FullDescription,
                 TagNames = tagNames,
                 ImagesPaths = imagesPaths,
-                SchematicPath = chema.FileName
+                SchematicPath = schema.FileName
             };
 
             return weaponDetailsViewModel;
@@ -175,34 +177,6 @@
         {
             await this.dbContext.Weapons.AddAsync(weapon);
             await this.dbContext.SaveChangesAsync();
-        }
-
-        public async Task<IEnumerable<AllWeaponViewModel>> LastTwentyWeapon(string wwwrootPath)
-        {
-
-
-            Console.WriteLine(Path.Combine(wwwrootPath, "Uploads", "1_1_WeaponPic.jpg"));
-            IEnumerable<AllWeaponViewModel> lastTwentyWeapons = await this.dbContext
-                .Weapons
-                .Include(w => w.Images)
-                .Select(w => new AllWeaponViewModel()
-                {
-                    Id = w.Id,
-                    Name = w.Name,
-                    Engineer = w.Engineer.Username,
-                    Rating = w.Rating,
-                    Type = w.Type.Name,
-                    Complexity = w.Complexity,
-                    Description = w.ShortDescription,
-                    TagNames = w.Tags.Select(w => w.Name).OrderBy(w => w).ToList(),
-                    ImagesPaths = w.Images.Select(w => w.FileName).OrderBy(w => w).ToList(),
-                })
-
-                .OrderByDescending(w => w.Id)
-                .Take(20)
-                .ToListAsync();
-
-            return lastTwentyWeapons;
         }
 
         public async Task UpdateWeaponAsync(Weapon weapon)
@@ -225,9 +199,9 @@
 
             Weapon weapon = await dbContext
                 .Weapons
-                .Include(h => h.Type)
-                .Include(h => h.Tags)
-                .FirstAsync(h => h.Id.ToString() == weaponId);
+                .Include(w => w.Type)
+                .Include(w => w.Tags)
+                .FirstAsync(w => w.Id.ToString() == weaponId);
 
             WeaponFormModel formModel = new WeaponFormModel
             {
@@ -255,7 +229,7 @@
         {
             Weapon weapon = await dbContext
                 .Weapons
-                .FirstAsync(h => h.Id.ToString() == weaponId);
+                .FirstAsync(w => w.Id.ToString() == weaponId);
 
             weapon.Name = formModel.Name;
             weapon.Complexity = formModel.Complexity;
@@ -266,7 +240,7 @@
             //weapon.Tags.Clear();
             //weapon.Images.Clear();
 
-            //            IEnumerable<WeaponTagFormModel> tagFormModels = await tagService.FiveSelectedTagsAsync(formModel.FirstTagId, formModel.SecondTagId, formModel.ThirdTagId, formModel.ForthTagId, formModel.FifthTagId);
+            //IEnumerable<WeaponTagFormModel> tagFormModels = await tagService.FiveSelectedTagsAsync(formModel.FirstTagId, formModel.SecondTagId, formModel.ThirdTagId, formModel.ForthTagId, formModel.FifthTagId);
 
             //foreach (var tagFormModel in tagFormModels)
             //{
@@ -287,7 +261,7 @@
         {
             Weapon weapon = await dbContext
                 .Weapons
-                .FirstAsync(h => h.Id.ToString() == weaponId);
+                .FirstAsync(w => w.Id.ToString() == weaponId);
 
             return weapon.EngineerId.ToString() == engineerId;
         }
@@ -301,7 +275,6 @@
        .Include(w => w.Images)
        .FirstAsync(w => w.Id.ToString() == weaponId);
 
-            // Populate the form model with data from the weapon entity
             WeaponPreDeleteViewModel formModel = new WeaponPreDeleteViewModel
             {
                 Name = weapon.Name,
@@ -329,7 +302,62 @@
             await dbContext.SaveChangesAsync();
         }
 
+        public async Task ToggleUserReactionAsync(string engineerId, string weaponId, ReactionType reactionType)
+        {
+            var weapon = await dbContext.Weapons.FindAsync(int.Parse(weaponId));
+            var existingReaction = await dbContext.UserReactions
+                .FirstOrDefaultAsync(ur => ur.UserId == engineerId && ur.WeaponId == weaponId);
 
+            if (existingReaction == null)
+            {
+                // Add new reaction
+                var newUserReaction = new UserReaction { UserId = engineerId, WeaponId = weaponId, ReactionType = reactionType };
+                dbContext.UserReactions.Add(newUserReaction);
+
+                if (reactionType == ReactionType.Like)
+                {
+                    weapon.Rating++;
+                }
+                else if (reactionType == ReactionType.Dislike)
+                {
+                    weapon.Rating--;
+                }
+            }
+            else
+            {
+                // Update existing reaction
+                if (existingReaction.ReactionType == reactionType)
+                {
+                    dbContext.UserReactions.Remove(existingReaction);
+
+                    if (reactionType == ReactionType.Like)
+                    {
+                        weapon.Rating--;
+                    }
+                    else if (reactionType == ReactionType.Dislike)
+                    {
+                        weapon.Rating++;
+                    }
+                }
+                else
+                {
+                    existingReaction.ReactionType = reactionType;
+                    dbContext.UserReactions.Update(existingReaction);
+
+                    if (reactionType == ReactionType.Like)
+                    {
+                        weapon.Rating += 2;
+                    }
+                    else if (reactionType == ReactionType.Dislike)
+                    {
+                        weapon.Rating -= 2;
+                    }
+                }
+            }
+
+            await dbContext.SaveChangesAsync();
+        }
     }
-
 }
+
+

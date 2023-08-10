@@ -5,7 +5,7 @@
 
 @inject IEngineerService EngineerService
 @{
-bool isEngineer = await EngineerService.EngineerExistsByUserIdAsync(this.User.GetId());
+bool isEngineer = await EngineerService.EngineerExistsByUserIdAsync(this.User.GetId()!);
 }
 
 <!DOCTYPE html>

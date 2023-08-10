@@ -3,7 +3,9 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
+
     using WastelandRilfeworks.Data.Models;
+
     using System.Reflection;
 
     public class WastelandRifleworksDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
@@ -22,9 +24,11 @@
 
         public DbSet<Weapon> Weapons { get; set; } = null!;
 
-        public DbSet<Image> Images { get; set; }
+        public DbSet<Image> Images { get; set; } = null!;
 
-        public DbSet<Schematic> Schematics { get; set; }
+        public DbSet<Schematic> Schematics { get; set; } = null!;
+
+        public DbSet<UserReaction> UserReactions { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

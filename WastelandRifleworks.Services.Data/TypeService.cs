@@ -1,12 +1,14 @@
 ﻿namespace WastelandRifleworks.Services.Data
 {
     using Microsoft.EntityFrameworkCore;
+
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
     using Wasteland_Rifleworks.Data;
     using WastelandRifleworks.Services.Data.Intefaces;
     using WastelandRifleworks.Web.ViewModels.Type;
-    using WastelandRifleworks.Web.ViewModels.Weapon;
+
 
 
     public class TypeService : ITypeService

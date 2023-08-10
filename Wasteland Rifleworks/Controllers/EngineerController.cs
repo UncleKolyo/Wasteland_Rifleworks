@@ -2,11 +2,13 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
+
     using WastelandRifleworks.Web.Infrastructure.Extensions;
+    using WastelandRifleworks.Web.ViewModels.Engineer;
     using WastelandRifleworks.Services.Data.Intefaces;
 
     using static WastelandRilfeworks.Common.NotificationMessagesConstants;
-    using WastelandRifleworks.Web.ViewModels.Engineer;
+
 
     [Authorize]
 
@@ -23,23 +25,20 @@
         public async Task<IActionResult> Become()
         {
             string? userId = this.User.GetId();
-            bool isEngineer = await this.engineerService.EngineerExistsByUserIdAsync(userId);
+            bool isEngineer = await this.engineerService.EngineerExistsByUserIdAsync(userId!);
             if (isEngineer)
             {
                 TempData[ErrorMessage] = "You already are an Engineer! You should know that!";
                 return RedirectToAction("Index", "Home");
             }
             return this.View();
-
-            //TempData[SuccessMessage] = "Congratulations, you are now an Engineer!";
-            //return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
         public async Task<IActionResult> Become(BecomeEngineerFormModel model)
         {
             string? userId = User.GetId();
-            bool isAgent = await engineerService.EngineerExistsByUserIdAsync(userId);
+            bool isAgent = await engineerService.EngineerExistsByUserIdAsync(userId!);
             if (isAgent)
             {
                 TempData[ErrorMessage] = "You are already an agent!";
@@ -49,7 +48,7 @@
 
             try
             {
-                await engineerService.Create(userId, model);
+                await engineerService.Create(userId!, model);
             }
             catch (Exception)
             {

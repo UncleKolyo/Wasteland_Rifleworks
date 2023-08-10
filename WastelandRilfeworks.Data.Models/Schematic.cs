@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
     using static Common.EntityValidationConstraints.Image;
     public class Schematic
     {
@@ -10,7 +11,7 @@
 
         [Required]
         [MaxLength(NameMaxLenght)]
-        public string FileName { get; set; }
+        public string FileName { get; set; } = null!;
 
     }
 }

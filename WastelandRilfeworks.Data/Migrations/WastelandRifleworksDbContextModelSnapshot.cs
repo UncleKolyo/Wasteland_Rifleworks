@@ -390,6 +390,51 @@ namespace WastelandRilfeworks.Data.Migrations
                         {
                             Id = 15,
                             Name = "Feedback appreciated"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "Lightweight"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "Heavy"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "Crude"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Name = "More Sophisticated"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Name = "Welded"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Name = "Riveted"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Name = "Hand Forged"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Name = "Dangerous"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Name = "Just for Fun"
                         });
                 });
 
@@ -438,6 +483,30 @@ namespace WastelandRilfeworks.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("WastelandRilfeworks.Data.Models.UserReaction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ReactionType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WeaponId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserReactions");
+                });
+
             modelBuilder.Entity("WastelandRilfeworks.Data.Models.Weapon", b =>
                 {
                     b.Property<int>("Id")
@@ -452,7 +521,7 @@ namespace WastelandRilfeworks.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 8, 8, 18, 53, 3, 585, DateTimeKind.Utc).AddTicks(8389));
+                        .HasDefaultValue(new DateTime(2023, 8, 10, 20, 2, 20, 797, DateTimeKind.Utc).AddTicks(3083));
 
                     b.Property<Guid>("EngineerId")
                         .HasColumnType("uniqueidentifier");

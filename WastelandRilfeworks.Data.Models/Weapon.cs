@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
     using static Common.EntityValidationConstraints.Weapon;
 
     public class Weapon
@@ -61,7 +62,7 @@
 
         public int WeaponSchematicId { get; set; }
 
-        public Schematic WeaponSchematic { get; set; }
+        public Schematic WeaponSchematic { get; set; } = null!;
 
         [Required]
 

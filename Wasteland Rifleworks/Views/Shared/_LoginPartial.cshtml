@@ -8,9 +8,11 @@
 @inject IEngineerService EngineerService
 @{
 
-	bool isEngineer = await EngineerService.EngineerExistsByUserIdAsync(this.User.GetId());
+	bool isEngineer = await EngineerService.EngineerExistsByUserIdAsync(this.User.GetId()!);
 
-	string username = await EngineerService.GetEnginnerUsernameByEnginnerIdAsync(await EngineerService.GetEnginnerIdByUserIdAsync(this.User.GetId()));
+	string? engineerId = await EngineerService.GetEnginnerIdByUserIdAsync(this.User.GetId()!);
+
+	string? username = await EngineerService.GetEnginnerUsernameByEnginnerIdAsync(engineerId!);
 	
 
 }
@@ -27,7 +29,7 @@
 		@if (!isEngineer)
 		{
 		<li class="nav-item">
-			<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name.Split('@')[0]!</a>
+			<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!.Split('@')[0]!</a>
 		</li>
 		}
 		
