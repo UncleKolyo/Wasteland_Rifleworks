@@ -6,38 +6,68 @@
     ViewBag.Title = "Become an Engineer";
 }
 
-<h2 class="text-center">@ViewBag.Title</h2>
-<hr />
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">@ViewBag.Title</h2>
+        <hr />
 
-@if (!ViewData.ModelState.IsValid && ViewData.ModelState["Error"] != null)
-{
-    <div class="alert alert-danger" role="alert">
-        @ViewData.ModelState["Error"]!.Errors.First().ErrorMessage
-    </div>
-}
-
-<div class="row">
-    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-        <form method="post">
-            <div class="form-group">
-                <label asp-for="Username"></label>
-                <input asp-for="Username" class="form-control" placeholder="@placeholderName">
-                <span asp-validation-for="Username" class="small text-danger"></span>
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState["Error"] != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewData.ModelState["Error"]!.Errors.First().ErrorMessage
             </div>
-            <div class="text-center">
-                <input class="btn btn-primary mt-3 " type="submit" value="Save" />
-            </div>
-        </form>
-    </div>
-</div>
+        }
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
-<form method="post" enctype="multipart/form-data">
-        <span>Select File:</span>
-        <input type="file" name="postedFiles" multiple/>
-        <input type="submit" value="Upload"/>
-        <br/>
-        <span style="color:green">@Html.Raw(ViewBag.Message)</span>
-    </form>
+        <div class="row">
+            <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+                <form id="engineerForm" method="post">
+                    <div class="form-group">
+                        <label asp-for="Username"></label>
+                        <input asp-for="Username" class="form-control" placeholder="@placeholderName">
+                        <span asp-validation-for="Username" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Select File:</label>
+                        <input type="file" name="postedFiles" multiple />
+                    </div>
+                    <div class="text-center">
+                        <input class="btn btn-primary mt-3" type="submit" value="Save" />
+                    </div>
+                </form>
+                <div id="aiMessage" class="text-center" style="display: none;">
+                    Our super complex AI is analyzing your submission...
+                    <span class="loading-dots">.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("engineerForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var engineerForm = this;
+
+            // Hide the form and show the AI message
+            engineerForm.style.display = "none";
+            document.getElementById("aiMessage").style.display = "block";
+
+            setTimeout(function () {
+                // Continue with the save logic
+                engineerForm.submit();
+            }, 5000);
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+</body>
+</html>

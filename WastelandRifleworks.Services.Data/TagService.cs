@@ -68,5 +68,19 @@
             return tagFormModels;
 
         }
+
+        public async Task<int> GetFirstTagIdAsync()
+        {
+            var tags = await AllTagsAsync(); 
+            var firstTag = tags.FirstOrDefault(); 
+
+            if (firstTag != null)
+            {
+                return firstTag.Id; 
+            }
+
+
+            return 1; 
+        }
     }
 }

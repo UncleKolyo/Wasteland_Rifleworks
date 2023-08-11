@@ -12,5 +12,7 @@
         Task<IEnumerable<WeaponTagFormModel>> FiveSelectedTagsAsync(int FirstId, int SecondId, int ThirdId, int ForthId, int FifthId);
 
         Task<IEnumerable<string>> AllNamesAsync();
+
+        Task<int> GetFirstTagIdAsync();
     }
 }

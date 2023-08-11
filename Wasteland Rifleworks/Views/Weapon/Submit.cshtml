@@ -2,84 +2,151 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+<!DOCTYPE html>
 <html>
-	<body>
-    <form method="post" enctype="multipart/form-data" asp-controller="Weapon" asp-action="Submit">
-        <span>Select File:</span>
-        <input type="file"  name="postedFiles" multiple/>
-		<input type="file"  name="weaponSchematic"/>
-        <input type="submit" value="Upload"/>
-        <br/>
-        <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+<head>
+    <title>Weapon Submission</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <form method="post" enctype="multipart/form-data" asp-controller="Weapon" asp-action="Submit">
+            <h2 class="mb-4">Weapon Submission</h2>
+            
+            <div class="mb-3">
+                <label for="postedFiles" class="form-label">Select Files</label>
+                <input type="file" class="form-control" name="postedFiles" multiple />
+            </div>
+            
+            <div class="mb-3">
+                <label for="weaponSchematic" class="form-label">Weapon Schematic</label>
+                <input type="file" class="form-control" name="weaponSchematic" />
+            </div>
+            
+            <div class="mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" asp-for="Name" class="form-control" aria-required="true" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
 
-		<div class="mb-3">
-					<label asp-for="@Model.Name" class="form-label">Name</label>
-					<input asp-for="@Model.Name" class="form-control" aria-required="true" />
-					<span asp-validation-for="@Model.Name" class="text-danger"></span>
-				</div>
+            <div class="mb-3">
+                <label for="Complexity" class="form-label">Complexity</label>
+                <input type="number" asp-for="Complexity" class="form-control" aria-required="true" />
+                <span asp-validation-for="Complexity" class="text-danger"></span>
+            </div>
 
-				<div class="mb-3">
-					<label asp-for="@Model.Complexity" class="form-label">Complexity</label>
-					<input asp-for="@Model.Complexity" class="form-control" aria-required="true" />
-					<span asp-validation-for="@Model.Complexity" class="text-danger"></span>
-				</div>
-				<div class="mb-3">
-					<label asp-for="@Model.ShortDescription" class="form-label">Description</label>
-					<input asp-for="@Model.ShortDescription" class="form-control" aria-required="true" />
-					<span asp-validation-for="@Model.ShortDescription" class="text-danger"></span>
-				</div>
+            <div class="mb-3">
+                <label for="ShortDescription" class="form-label">Short Description</label>
+                <textarea asp-for="ShortDescription" class="form-control" rows="3" aria-required="true"></textarea>
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
 
-				<div class="mb-3">
-					<label asp-for="@Model.FullDescription" class="form-label">Description</label>
-					<input asp-for="@Model.FullDescription" class="form-control" aria-required="true" />
-					<span asp-validation-for="@Model.FullDescription" class="text-danger"></span>
-				</div>
+            <div class="mb-3">
+                <label for="FullDescription" class="form-label">Full Description</label>
+                <textarea asp-for="FullDescription" class="form-control" rows="5" aria-required="true"></textarea>
+                <span asp-validation-for="FullDescription" class="text-danger"></span>
+            </div>
 
-				<div class="form-group">
-					<label asp-for="TypeId"></label>
-					<select asp-for="TypeId" class="form-control">
-						@foreach (var type in Model.Types)
-						{
-							<option value="@type.Id">@type.Name</option>
-						}
-					</select>
-					<span asp-validation-for="TypeId" class="small text-danger"></span>
-				</div>
-				
-				<div class="form-group">
-					<select asp-for="FirstTagId" class="form-control" data-role="tagsinput">
-						@foreach (var tag in Model.Tags)
-						{
-							<option value="@tag.Id">@tag.Name</option>
-						}
-					</select>
-					<select asp-for="SecondTagId" class="form-control" data-role="tagsinput">
-						@foreach (var tag in Model.Tags)
-						{
-							<option value="@tag.Id">@tag.Name</option>
-						}
-					</select>
-					<select asp-for="ThirdTagId" class="form-control" data-role="tagsinput">
-						@foreach (var tag in Model.Tags)
-						{
-							<option value="@tag.Id">@tag.Name</option>
-						}
-					</select>
-					<select asp-for="ForthTagId" class="form-control" data-role="tagsinput">
-						@foreach (var tag in Model.Tags)
-						{
-							<option value="@tag.Id">@tag.Name</option>
-						}
-					</select>
-					<select asp-for="FifthTagId" class="form-control" data-role="tagsinput">
-						@foreach (var tag in Model.Tags)
-						{
-							<option value="@tag.Id">@tag.Name</option>
-						}
-					</select>
-				</div>
-	 </form>
-	 </body>
+            <div class="form-group">
+                <label for="TypeId">Weapon Type</label>
+                <select asp-for="TypeId" class="form-control">
+                    @foreach (var type in Model.Types)
+                    {
+                        <option value="@type.Id">@type.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="TypeId" class="small text-danger"></span>
+            </div>
+
+                        <div class="form-group">
+                <label for="FirstTagId">First Tag</label>
+                <select asp-for="FirstTagId" class="form-control tag-select" data-role="tagsinput">
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <option value="@tag.Id">@tag.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="FirstTagId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group tag-group">
+                <label for="SecondTagId">Second Tag</label>
+                <select asp-for="SecondTagId" class="form-control tag-select" data-role="tagsinput">
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <option value="@tag.Id">@tag.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="SecondTagId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group tag-group">
+                <label for="ThirdTagId">Third Tag</label>
+                <select asp-for="ThirdTagId" class="form-control tag-select" data-role="tagsinput">
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <option value="@tag.Id">@tag.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="ThirdTagId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group tag-group">
+                <label for="FourthTagId">Fourth Tag</label>
+                <select asp-for="ForthTagId" class="form-control tag-select" data-role="tagsinput">
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <option value="@tag.Id">@tag.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="ForthTagId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group tag-group">
+                <label for="FifthTagId">Fifth Tag</label>
+                <select asp-for="FifthTagId" class="form-control tag-select" data-role="tagsinput">
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <option value="@tag.Id">@tag.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="FifthTagId" class="text-danger"></span>
+            </div>
+            
+<script>
+    $(document).ready(function () {
+        $(".tag-group:not(:first)").hide(); // Hide all tag groups except the first one
+
+        $(".tag-select").change(function () {
+            var $thisGroup = $(this).closest(".tag-group");
+            var $nextGroup = $thisGroup.next(".tag-group");
+
+            if ($(this).val() !== "") {
+                $nextGroup.show();
+            } else {
+                $nextGroup.hide();
+            }
+
+            // Set the value of hidden tag selects to the value of the selected tag
+            if ($nextGroup.hasClass("tag-group")) {
+                var selectedTagValue = $(this).val();
+                $nextGroup.find(".tag-select").val(selectedTagValue);
+            }
+        });
+    });
+</script>
+
+          
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <span style="color: green">@Html.Raw(ViewBag.Message)</span>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+</body>
 </html>
-
-

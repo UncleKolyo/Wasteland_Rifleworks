@@ -58,8 +58,7 @@
         [Authorize]
         public async Task<IActionResult> Submit()
         {
-            bool isEngineer =
-                await this.engineerService.EngineerExistsByUserIdAsync(this.User.GetId()!);
+            bool isEngineer = await this.engineerService.EngineerExistsByUserIdAsync(this.User.GetId()!);
             if (!isEngineer)
             {
                 this.TempData[ErrorMessage] = "Only Engineers can submit designs! Duh!";
@@ -69,8 +68,13 @@
             WeaponFormModel formModel = new WeaponFormModel()
             {
                 Types = await this.typeService.AllTypesAsync(),
-                Tags = await this.tagService.AllTagsAsync()
+                Tags = await this.tagService.AllTagsAsync(),
+                // Set values for hidden tag selects to match the value of the first tag
+                SecondTagId = await this.tagService.GetFirstTagIdAsync(),
+                ThirdTagId = await this.tagService.GetFirstTagIdAsync(),
+                // ... Repeat for FourthTagId and FifthTagId ...
             };
+
             return View(formModel);
 
 
