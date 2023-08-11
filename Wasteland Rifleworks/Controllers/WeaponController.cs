@@ -56,7 +56,7 @@
             return View(queryModel);
         }
         [Authorize]
-        public async Task<IActionResult> Submit()
+        public async Task<IActionResult> Submit() 
         {
             bool isEngineer = await this.engineerService.EngineerExistsByUserIdAsync(this.User.GetId()!);
             if (!isEngineer)
@@ -222,7 +222,7 @@
 
             bool isUserEngineer = await engineerService
                 .EngineerExistsByUserIdAsync(User.GetId()!);
-            if (!isUserEngineer/* && !User.IsAdmin()*/)
+            if (!isUserEngineer && !User.IsAdmin())
             {
                 TempData[ErrorMessage] = "You must become an engineer in order to edit house info!";
 
@@ -233,7 +233,7 @@
               await engineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
             bool isEngineerCreator = await weaponService
                 .IsEngineertWithIdCreatorOfWeaponWithIdAsync(id, engineerId!);
-            if (!isEngineerCreator/* && !User.IsAdmin()*/)
+            if (!isEngineerCreator && !User.IsAdmin())
             {
                 TempData[ErrorMessage] = "You must be the creator of the weapon you want to edit!";
 
@@ -265,7 +265,7 @@
 
             bool isUserEngineer = await engineerService
                 .EngineerExistsByUserIdAsync(User.GetId()!);
-            if (!isUserEngineer/* && !User.IsAdmin()*/)
+            if (!isUserEngineer && !User.IsAdmin())
             {
                 TempData[ErrorMessage] = "You must become an engineer in order to edit house info!";
 
@@ -276,7 +276,7 @@
               await engineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
             bool isEngineerCreator = await weaponService
                 .IsEngineertWithIdCreatorOfWeaponWithIdAsync(id, engineerId!);
-            if (!isEngineerCreator/* && !User.IsAdmin()*/)
+            if (!isEngineerCreator && !User.IsAdmin())
             {
                 TempData[ErrorMessage] = "You must be the creator of the weapon you want to edit!";
 
@@ -315,7 +315,7 @@
 
             bool isUserEngineer = await engineerService
                 .EngineerExistsByUserIdAsync(User.GetId()!);
-            if (!isUserEngineer/* && !User.IsAdmin()*/)
+            if (!isUserEngineer && !User.IsAdmin())
             {
                 TempData[ErrorMessage] = "You must become an engineer in order to edit house info!";
 
@@ -326,7 +326,7 @@
               await engineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
             bool isEngineerCreator = await weaponService
                 .IsEngineertWithIdCreatorOfWeaponWithIdAsync(id, engineerId!);
-            if (!isEngineerCreator/* && !User.IsAdmin()*/)
+            if (!isEngineerCreator && !User.IsAdmin())
             {
                 TempData[ErrorMessage] = "You must be the creator of the weapon you want to edit!";
 
@@ -360,7 +360,7 @@
 
             bool isUserEngineer = await engineerService
                 .EngineerExistsByUserIdAsync(User.GetId()!);
-            if (!isUserEngineer/* && !User.IsAdmin()*/)
+            if (!isUserEngineer && !User.IsAdmin())
             {
                 TempData[ErrorMessage] = "You must become an engineer in order to edit house info!";
 
@@ -371,7 +371,7 @@
               await engineerService.GetEnginnerIdByUserIdAsync(User.GetId()!);
             bool isEngineerCreator = await weaponService
                 .IsEngineertWithIdCreatorOfWeaponWithIdAsync(id, engineerId!);
-            if (!isEngineerCreator/* && !User.IsAdmin()*/)
+            if (!isEngineerCreator && !User.IsAdmin())
             {
                 TempData[ErrorMessage] = "You must be the creator of the weapon you want to edit!";
 

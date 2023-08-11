@@ -27,7 +27,7 @@
     <div class="form-inline">
                 @if (User.Identity?.IsAuthenticated ?? false)
                 {
-                    @if (isEngineerCreator)
+                    @if (isEngineerCreator || User.IsAdmin())
                     {
                         <a class="btn btn-secondary" asp-controller="Weapon" asp-action="Edit"
                            asp-route-id="@Model.Id">Edit</a>
