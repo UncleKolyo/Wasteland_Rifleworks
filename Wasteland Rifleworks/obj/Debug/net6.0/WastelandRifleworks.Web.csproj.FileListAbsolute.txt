@@ -264,3 +264,4 @@ C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland 
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Admin\source\repos\Wasteland Rifleworks\Wasteland_Rifleworks\Wasteland Rifleworks\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\AdminLayout.cshtml.rz.scp.css

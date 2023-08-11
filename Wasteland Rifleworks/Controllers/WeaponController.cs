@@ -186,24 +186,39 @@
             return View(viewModel);
         }
 
-        public async Task<IActionResult> DownloadSchema(string id)
+        public IActionResult DownloadSchematic(string fileName)
         {
-            string path = Path.Combine(this.environment.WebRootPath, "Uploads");
-            if (!Directory.Exists(path))
+            var filePath = Path.Combine(environment.WebRootPath, "Uploads", fileName);
+
+            if (!System.IO.File.Exists(filePath))
             {
-                Directory.CreateDirectory(path);
+                return NotFound();
             }
 
             var memory = new MemoryStream();
-            using (var stream = new FileStream(path, FileMode.Open, FileAccess.ReadWrite))
-            { 
-            await stream.CopyToAsync(memory);
+            using (var stream = new FileStream(filePath, FileMode.Open))
+            {
+                stream.CopyTo(memory);
             }
             memory.Position = 0;
-            var contentType = "APPLICATION/octec-stream";
 
-            var fileName = Path.GetFileName(path);
-            return File(memory, contentType, fileName);
+            return File(memory, GetContentType(filePath), Path.GetFileName(filePath));
+        }
+
+        private string GetContentType(string path)
+        {
+            var types = GetMimeTypes();
+            var ext = Path.GetExtension(path).ToLowerInvariant();
+            return types.TryGetValue(ext, out var type) ? type : "application/octet-stream";
+        }
+
+        private Dictionary<string, string> GetMimeTypes()
+        {
+            return new Dictionary<string, string>
+    {
+        { ".pdf", "application/pdf" },
+        // Add more mime types as needed
+    };
         }
 
         [HttpGet]

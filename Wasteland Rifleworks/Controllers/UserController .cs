@@ -11,7 +11,7 @@
     public class UserController : Controller
     {
         private readonly SignInManager<ApplicationUser> signInManager;
-        private readonly UserManager<ApplicationUser> userManager;
+        private readonly UserManager<ApplicationUser> userManager;  
         private readonly IMemoryCache memoryCache;
 
         public UserController(SignInManager<ApplicationUser> signInManager,

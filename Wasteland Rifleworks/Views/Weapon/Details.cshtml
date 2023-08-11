@@ -116,6 +116,12 @@
                   {
                      @Html.Partial("_LikeDislikePartial", @Model)
                   }
+                  @if (!string.IsNullOrEmpty(@Model.SchematicPath))
+            {
+                <div class="mt-3">
+                    <a href="@Url.Action("DownloadSchematic", "Weapon", new { fileName = Model.SchematicPath })" class="btn btn-primary">Download Schematic</a>
+                </div>
+            }
                                         
                 }
             </div>

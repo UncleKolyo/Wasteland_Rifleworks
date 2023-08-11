@@ -20,28 +20,24 @@
         }
 
         [Route("User/All")]
-        //[ResponseCache(Duration = 30, Location = ResponseCacheLocation.Client, NoStore = false)]
+        [ResponseCache(Duration = 30, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> All()
         {
-            IEnumerable<UserViewModel> viewModel =
-                await this.userService.AllAsync();
+            IEnumerable<UserViewModel> users =
+                this.memoryCache.Get<IEnumerable<UserViewModel>>(UsersCacheKey);
+            if (users == null)
+            {
+                users = await this.userService.AllAsync();
 
-                return View(viewModel); 
+                MemoryCacheEntryOptions cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan
+                        .FromMinutes(UsersCacheDurationMinutes));
 
-            //IEnumerable<UserViewModel> users =
-            //    this.memoryCache.Get<IEnumerable<UserViewModel>>(UsersCacheKey);
-            //if (users == null)
-            //{
-            //    users = await this.userService.AllAsync();
+                this.memoryCache.Set(UsersCacheKey, users, cacheOptions);
+            }
 
-            //    MemoryCacheEntryOptions cacheOptions = new MemoryCacheEntryOptions()
-            //        .SetAbsoluteExpiration(TimeSpan
-            //            .FromMinutes(UsersCacheDurationMinutes));
-
-            //    this.memoryCache.Set(UsersCacheKey, users, cacheOptions);
-            //}
-
-            //return View(users);
+            return View(users);
         }
     }
+    
 }

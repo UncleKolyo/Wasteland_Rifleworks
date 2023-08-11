@@ -15,7 +15,6 @@
             <th><label>Username</label></th>
             <th><label>Aprovement</label></th>
             <th><label>User Is Engineer</label></th>
-            <th><label>User Is Online</label></th>
         </tr>
     </thead>
     <tbody>
@@ -34,17 +33,6 @@
                     {
                         <label class="text-center">❌</label> 
                     }
-                </td>
-@*                <td>
-                    @if (OnlineUsersMiddleware.CheckIfUserIsOnline(user.Id))
-                    {
-                        <label>✔</label>
-                    }
-                    else
-                    {
-                        <label class="text-center">❌</label>
-                    }
-                </td>*@
             </tr>
         }
     </tbody>

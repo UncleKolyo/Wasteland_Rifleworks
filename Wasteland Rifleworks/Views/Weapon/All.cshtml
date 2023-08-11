@@ -1,10 +1,11 @@
 ﻿@model AllWeaponsQueryModel
 
+
 @{
-    ViewBag.Title = "All Weapons";
+    ViewData["Title"] = "All Weapons";
 }
 
-<h2 class="text-center">@ViewBag.Title</h2>
+<h2 class="text-center">@ViewData["Title"]</h2>
 <hr />
 
 <form method="get">
@@ -21,7 +22,7 @@
                 </select>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label asp-for="Tag"></label>
                 <select asp-for="Tag" class="form-control">
                     <option value="">All</option>
@@ -31,7 +32,7 @@
                     }
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label asp-for="WeaponPerPage"></label>
                 <select asp-for="WeaponPerPage" class="form-control">
@@ -69,45 +70,40 @@
     </div>
 </form>
 
-
-@{
-    int previousPage = Model.CurrentPage - 1;
-    if (previousPage < 1)
-    {
-        previousPage = 1;
-    }
-
-    int maxPage = (int)Math.Ceiling((double)Model.TotalWeapons /
-        Model.WeaponPerPage);
-}
-
 <div class="row mb-5">
     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-start">
+        @{
+            int previousPage = Model.CurrentPage - 1;
+            if (previousPage < 1)
+            {
+                previousPage = 1;
+            }
+        }
         <a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
            asp-controller="Weapon"
            asp-action="All"
            asp-route-currentPage="@previousPage"
-           asp-route-category="@Model.Type"
-           asp-route-category="@Model.Tag"
+           asp-route-type="@Model.Type"
+           asp-route-tag="@Model.Tag"
            asp-route-searchTerm="@Model.SearchTerm"
-           asp-route-sorting="@((int)Model.Sorting)"><<</a>
+           asp-route-sorting="@((int)Model.Sorting)">&lt;&lt;</a>
     </div>
 
     @{
-        bool shouldNextPageBeDisabled = Model.CurrentPage == maxPage ||
-            !Model.Weapons.Any();
+        int maxPage = (int)Math.Ceiling((double)Model.TotalWeapons /
+            Model.WeaponPerPage);
+        bool shouldNextPageBeDisabled = Model.CurrentPage == maxPage || !Model.Weapons.Any();
     }
 
     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
-        <a class="btn btn-primary 
-           @(shouldNextPageBeDisabled ? "disabled" : string.Empty)"
+        <a class="btn btn-primary @(shouldNextPageBeDisabled ? "disabled" : string.Empty)"
            asp-controller="Weapon"
            asp-action="All"
            asp-route-currentPage="@(Model.CurrentPage + 1)"
-           asp-route-category="@Model.Type"
-           asp-route-category="@Model.Tag"
+           asp-route-type="@Model.Type"
+           asp-route-tag="@Model.Tag"
            asp-route-searchTerm="@Model.SearchTerm"
-           asp-route-sorting="@((int)Model.Sorting)">>></a>
+           asp-route-sorting="@((int)Model.Sorting)">&gt;&gt;</a>
     </div>
 </div>
 
