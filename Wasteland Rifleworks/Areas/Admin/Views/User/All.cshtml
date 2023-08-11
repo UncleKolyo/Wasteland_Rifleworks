@@ -1,0 +1,51 @@
+﻿@using WastelandRifleworks.Services.Data.Intefaces
+@model IEnumerable<UserViewModel>
+@inject IEngineerService EngineerService;
+@{
+    ViewBag.Title = "All Users";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><label>Email</label></th>
+            <th><label>Username</label></th>
+            <th><label>Aprovement</label></th>
+            <th><label>User Is Engineer</label></th>
+            <th><label>User Is Online</label></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td><label>@user.Email</label></td>
+                <td><label>@user.Username</label></td>
+                <td><label>@user.Aprovement</label></td>
+                <td>
+                    @if (await EngineerService.EngineerExistsByUserIdAsync(user.Id.ToString()))
+                    {
+                        <label>✔</label>
+                    }
+                    else
+                    {
+                        <label class="text-center">❌</label> 
+                    }
+                </td>
+@*                <td>
+                    @if (OnlineUsersMiddleware.CheckIfUserIsOnline(user.Id))
+                    {
+                        <label>✔</label>
+                    }
+                    else
+                    {
+                        <label class="text-center">❌</label>
+                    }
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>

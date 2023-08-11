@@ -1,7 +1,7 @@
 ﻿namespace Wasteland_Rifleworks.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-
+    using static WastelandGeneralConstants.WastelandGeneralConstants;
     public class HomeController : Controller
     {
        
@@ -15,6 +15,11 @@
 
         public IActionResult Index()
         {
+            if (this.User.IsInRole(AdminRoleName))
+            {
+                return this.RedirectToAction("Index", "Home", new { Area = AdminAreaName });
+            }
+
             return View();
         }
 
