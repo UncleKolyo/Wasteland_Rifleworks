@@ -1,6 +1,7 @@
 ﻿@model WeaponDetailsViewModel
 
-<div>
+<div class="form-inline">
+    <div class="form-inline">
     @if (User.Identity.IsAuthenticated)
     {
         <form method="post" asp-action="ToggleLike" asp-route-weaponId="@Model.Id">
@@ -17,4 +18,5 @@
             </button>
         </form>
     }
+    </div>
 </div>

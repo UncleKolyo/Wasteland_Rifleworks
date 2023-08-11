@@ -41,5 +41,11 @@
             public const int NameMinLenght = 5;
             public const int NameMaxLenght = 205;
         }
+
+        public static class User
+        {
+            public const int PasswordMinLenght = 6;
+            public const int PasswordMaxLenght = 205;
+        }
     }
 }

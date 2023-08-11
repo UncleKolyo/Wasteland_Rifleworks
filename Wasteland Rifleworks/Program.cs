@@ -5,6 +5,7 @@ using Wasteland_Rifleworks.Data;
 using WastelandRifleworks.Services.Data.Intefaces;
 using WastelandRifleworks.Web.Infrastructure.Extensions;
 using WastelandRilfeworks.Data.Models;
+using Microsoft.AspNetCore.Identity;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
