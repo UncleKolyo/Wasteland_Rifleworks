@@ -10,7 +10,7 @@
     using WastelandRifleworks.Web.ViewModels.Weapon;
     using WastelandRifleworks.Web.Infrastructure.Extensions;
 
-    using static WastelandRilfeworks.Common.NotificationMessagesConstants;   
+    using static WastelandRilfeworks.Common.NotificationMessagesConstants;
 
 
 
@@ -56,7 +56,7 @@
             return View(queryModel);
         }
         [Authorize]
-        public async Task<IActionResult> Submit() 
+        public async Task<IActionResult> Submit()
         {
             bool isEngineer = await this.engineerService.EngineerExistsByUserIdAsync(this.User.GetId()!);
             if (!isEngineer)
@@ -114,7 +114,7 @@
                 weapon.Tags.Add(tag);
             }
 
-            
+
 
             string path = Path.Combine(this.environment.WebRootPath, "Uploads");
             if (!Directory.Exists(path))
@@ -158,8 +158,6 @@
 
             await this.weaponService.InsertWeaponAsync(weapon);
 
-            await this.weaponService.UpdateWeaponAsync(weapon);
-
             return RedirectToAction("All", "Weapon");
         }
 
@@ -171,7 +169,7 @@
 
             string? engineerId = await this.engineerService.GetEnginnerIdByUserIdAsync(userId);
             myWeapons.AddRange(await this.weaponService.AllByEngineerIdAsync(engineerId!));
-            
+
             return this.View(myWeapons);
         }
 
@@ -179,8 +177,8 @@
         [AllowAnonymous]
         public async Task<IActionResult> Details(string id)
         {
-                WeaponDetailsViewModel viewModel = await weaponService
-                    .GetDetailsByIdAsync(id);
+            WeaponDetailsViewModel viewModel = await weaponService
+                .GetDetailsByIdAsync(id);
 
 
             return View(viewModel);
@@ -215,10 +213,10 @@
         private Dictionary<string, string> GetMimeTypes()
         {
             return new Dictionary<string, string>
-    {
-        { ".pdf", "application/pdf" },
-        // Add more mime types as needed
-    };
+             {
+                  { ".pdf", "application/pdf" },
+
+                  };
         }
 
         [HttpGet]
@@ -231,8 +229,6 @@
                 TempData[ErrorMessage] = "Weapon with the provided id does not exist!";
 
                 return RedirectToAction("All", "House");
-
-                //return this.NotFound(); -> If you want to return 404 page
             }
 
             bool isUserEngineer = await engineerService
@@ -257,11 +253,11 @@
 
             WeaponFormModel formModel = await weaponService
                     .GetWeaponForEditbyIdAsync(id);
-                formModel.Types = await typeService.AllTypesAsync();
-                formModel.Tags = await tagService.AllTagsAsync();
+            formModel.Types = await typeService.AllTypesAsync();
+            formModel.Tags = await tagService.AllTagsAsync();
 
 
-                return View(formModel);
+            return View(formModel);
 
         }
 
@@ -307,7 +303,7 @@
                 ModelState.AddModelError(string.Empty,
                     "Something broke. Idk, contact and Admin or something, or try again...");
                 model.Types = await typeService.AllTypesAsync();
-                model.Tags = await  tagService.AllTagsAsync();
+                model.Tags = await tagService.AllTagsAsync();
 
                 return View(model);
             }
@@ -415,7 +411,6 @@
 
             await weaponService.ToggleUserReactionAsync(engineerId, weaponId, ReactionType.Like);
 
-            // Redirect back to the details page
             return RedirectToAction("Details", new { id = weaponId });
         }
 
@@ -428,8 +423,7 @@
 
             await weaponService.ToggleUserReactionAsync(engineerId, weaponId, ReactionType.Dislike);
 
-            // Redirect back to the details page
             return RedirectToAction("Details", new { id = weaponId });
         }
     }
-} 
+}

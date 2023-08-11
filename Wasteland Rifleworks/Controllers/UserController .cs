@@ -7,6 +7,7 @@
     using WastelandRifleworks.Web.ViewModels.User;
     using WastelandRilfeworks.Data.Models;
     using static WastelandRilfeworks.Common.NotificationMessagesConstants;
+    using static WastelandGeneralConstants.WastelandGeneralConstants;
 
     public class UserController : Controller
     {
@@ -54,7 +55,7 @@
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
-
+                this.memoryCache.Remove(UsersCacheKey);
                 return View(model);
             }
 

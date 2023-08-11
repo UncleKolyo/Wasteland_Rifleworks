@@ -38,10 +38,6 @@
             {
                 return $"{user.Email.Split('@')[0]}";
             }
-            if (user == null)
-            {
-                return string.Empty;
-            }
         }
 
 

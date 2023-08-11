@@ -1,0 +1,434 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifework.Services.Tests\\WastelandRifework.Services.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj",
+        "projectName": "WastelandRilfeworks.Common",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packages.stride3d.net/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifework.Services.Tests\\WastelandRifework.Services.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifework.Services.Tests\\WastelandRifework.Services.Tests.csproj",
+        "projectName": "WastelandRifework.Services.Tests",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifework.Services.Tests\\WastelandRifework.Services.Tests.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifework.Services.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packages.stride3d.net/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Services.Data\\WastelandRifleworks.Services.Data.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Services.Data\\WastelandRifleworks.Services.Data.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Web.ViewModels\\WastelandRifleworks.Web.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Web.ViewModels\\WastelandRifleworks.Web.ViewModels.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data\\WastelandRilfeworks.Data.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data\\WastelandRilfeworks.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[6.0.21, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.1.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.2, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit.Analyzers": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Services.Data\\WastelandRifleworks.Services.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Services.Data\\WastelandRifleworks.Services.Data.csproj",
+        "projectName": "WastelandRifleworks.Services.Data",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Services.Data\\WastelandRifleworks.Services.Data.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Services.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packages.stride3d.net/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Web.ViewModels\\WastelandRifleworks.Web.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Web.ViewModels\\WastelandRifleworks.Web.ViewModels.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data\\WastelandRilfeworks.Data.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data\\WastelandRilfeworks.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Web.ViewModels\\WastelandRifleworks.Web.ViewModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Web.ViewModels\\WastelandRifleworks.Web.ViewModels.csproj",
+        "projectName": "WastelandRifleworks.Web.ViewModels",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Web.ViewModels\\WastelandRifleworks.Web.ViewModels.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRifleworks.Web.ViewModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packages.stride3d.net/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj",
+        "projectName": "WastelandRilfeworks.Data.Models",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packages.stride3d.net/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data\\WastelandRilfeworks.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data\\WastelandRilfeworks.Data.csproj",
+        "projectName": "WastelandRilfeworks.Data",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data\\WastelandRilfeworks.Data.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packages.stride3d.net/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandGeneralConstants\\WastelandRilfeworks.Common.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\Wasteland Rifleworks\\Wasteland_Rifleworks\\WastelandRilfeworks.Data.Models\\WastelandRilfeworks.Data.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
