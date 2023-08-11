@@ -34,72 +34,30 @@ namespace WastelandRifeworks.Services.Tests
             DatabaseSeeder.SeedDatabase(this.dbContext);
         }
 
-        //[Test]
-        //public async Task AllAsync_ShouldReturnAllWeaponsFilteredAndPaged()
-        //{
-        //    // Arrange
-        //    var queryModel = new AllWeaponsQueryModel
-        //    {
-        //        Type = "Assault Rifle",
-        //        Tag = "Sniper Rifle",
-        //        SearchTerm = "example",
-        //        Sorting = WeaponSorting.MostComplex,
-        //        CurrentPage = 1,
-        //        WeaponPerPage = 10
-        //    };
+        [Test]
+        public async Task AllByEngineerIdAsync_WithValidEngineerId_ShouldReturnCorrectWeapons()
+        {
+            // Arrange
+            var engineerId = Guid.NewGuid().ToString();
+            var engineer = new Engineer { Id = Guid.Parse(engineerId), Username = "TestEngineer" };
+            var weapon1 = new Weapon { Id = 1, Name = "Weapon1", EngineerId = Guid.Parse(engineerId) };
+            var weapon2 = new Weapon { Id = 2, Name = "Weapon2", EngineerId = Guid.Parse(engineerId) };
+            dbContext.Engineers.Add(engineer);
+            dbContext.Weapons.Add(weapon1);
+            dbContext.Weapons.Add(weapon2);
+            await dbContext.SaveChangesAsync();
 
-        //    // Act
-        //    var result = await this.weaponService.AllAsync(queryModel, "wwwrootPath");
+            // Act
+            var result = await weaponService.AllByEngineerIdAsync(engineerId);
 
-        //    // Assert
-        //    Assert.NotNull(result);
-        //    Assert.AreEqual(0, result.TotalWeaponsCount);
-        //    Assert.AreEqual(0, result.Weapons.Count());
+            // Assert
+            Assert.IsNotNull(result);
+            var weaponViewModels = result.ToList();
+            Assert.AreEqual(2, weaponViewModels.Count);
+            Assert.AreEqual(weapon1.Name, weaponViewModels[0].Name);
+            Assert.AreEqual(weapon2.Name, weaponViewModels[1].Name);
 
-        //}
-
-        //[Test]
-        //public async Task AllByEngineerIdAsync_ShouldReturnWeaponsForEngineer()
-        //{
-        //    // Arrange
-        //    string engineerId = DatabaseSeeder.EngineerUser.Id.ToString();
-
-        //    // Act
-        //    var result = await this.weaponService.AllByEngineerIdAsync(engineerId);
-
-        //    // Assert
-        //    Assert.NotNull(result);
-        //    Assert.AreEqual(0, result.Count());
-
-        //}
-
-        //[Test]
-        //public async Task GetDetailsByIdAsync_ShouldReturnWeaponDetails()
-        //{
-        //    // Arrange
-        //    var weapon = dbContext.Weapons.First(); // Use the first weapon from the seeder data
-
-        //    var weaponId = weapon.Id.ToString();
-
-        //    // Act
-        //    var result = await weaponService.GetDetailsByIdAsync(weaponId);
-
-        //    // Assert
-        //    Assert.NotNull(result);
-        //    Assert.AreEqual(weapon.Name, result.Name);
-        //    Assert.AreEqual(weapon.Complexity, result.Complexity);
-        //    Assert.AreEqual(weapon.ShortDescription, result.ShortDescription);
-        //    Assert.AreEqual(weapon.FullDescription, result.FullDescription);
-        //    Assert.AreEqual(weapon.Type.Name, result.Type);
-        //    Assert.AreEqual(weapon.Rating, result.Rating);
-        //    Assert.AreEqual(weapon.Engineer.Username, result.Engineer);
-        //    // Assert other properties and collections as needed
-        //}
-
-        //[OneTimeTearDown]
-        //public void OneTimeTearDown()
-        //{
-        //    this.dbContext.Dispose();
-        //}
+           
+        }
     }
 }
